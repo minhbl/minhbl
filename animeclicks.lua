@@ -15,17 +15,18 @@ local UICorner_2 = Instance.new("UICorner")
 local UICorner_3 = Instance.new("UICorner")
 local OnAutoYo = false
 
---Properties:
 
 MumaHub.Name = "MumaHub"
 MumaHub.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 MumaHub.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Frame.Parent = MumaHub
+Frame.Active = true
 Frame.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
 Frame.BorderSizePixel = 0
 Frame.Position = UDim2.new(0.204137951, 0, 0.178368136, 0)
 Frame.Size = UDim2.new(0, 429, 0, 338)
+Frame.Draggable = true
 
 NAme.Name = "NAme"
 NAme.Parent = Frame
@@ -61,12 +62,8 @@ OnAuto.MouseButton1Click:Connect(function()
 		OnAutoYo = true
 		while wait() do
 			if OnAuto == true then
-				local args = {
-					[1] = false,
-					[2] = "Clicker!"
-				}
 				game:GetService("ReplicatedStorage").Remotes.ClickRemote:FireServer(unpack(args))
-         wait()
+			wait()	
 			end
 		end
 	elseif OnAutoYo == true then
