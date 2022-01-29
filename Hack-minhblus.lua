@@ -8,6 +8,8 @@ local Frame = Instance.new("Frame")
 local Nameten = Instance.new("TextLabel")
 local Main = Instance.new("TextButton")
 local Thanh = Instance.new("Frame")
+local EspPlayer = Instance.new("TextButton")
+local Enter2 = Instance.new("TextButton")
 local WALKSPEED = Instance.new("TextButton")
 local JUMPPOWER = Instance.new("TextButton")
 local Teleporter = Instance.new("TextButton")
@@ -28,7 +30,6 @@ local TextButton_3 = Instance.new("TextButton")
 local TextLabel_3 = Instance.new("TextLabel")
 local OUT = Instance.new("TextButton")
 local Open = Instance.new("TextButton")
-local EspPlayer = Instance.new("TextButton")
 
 
 MemiHack.Name = "MemiHack"
@@ -366,7 +367,23 @@ Open.Draggable = true
 Open.MouseButton1Click:Connect(function()
 Frame.Visible = true
 end)
-	
+
+Enter2.Name = "Enter2"
+Enter2.Parent = StepJP
+Enter2.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+Enter2.BorderSizePixel = 0
+Enter2.Position = UDim2.new(0.337620556, 0, 0.539999962, 0)
+Enter2.Size = UDim2.new(0, 100, 0, 50)
+Enter2.Font = Enum.Font.Code
+Enter2.Text = "Enter2"
+Enter2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Enter2.TextScaled = true
+Enter2.TextSize = 14.000
+Enter2.TextWrapped = true
+Enter2.MouseButton1Click:Connect(function()
+game.Players.LocalPlayer.Character.Humanoid.JumpHeight = viet_2.Text
+end)
+
 EspPlayer.Name = "EspPlayer"
 EspPlayer.Parent = Frame
 EspPlayer.BackgroundColor3 = Color3.fromRGB(0, 170, 0)
