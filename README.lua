@@ -18,7 +18,7 @@ local TextButton = Instance.new("TextButton")
 
 
 MemiHack.Name = "MemiHack"
-MemiHack.Parent = game.Workspace
+MemiHack.Parent = game.CoreGui
 MemiHack.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Frame.Parent = MemiHack
