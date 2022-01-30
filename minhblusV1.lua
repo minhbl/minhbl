@@ -404,12 +404,11 @@ game:GetService("RunService").RenderStepped:Connect(function()
 			esp13.TextColor3 = Color3.fromRGB(0, 170, 0)
 			esp13.Text = v.Name
 			esp13.Name = v.Name
+			esp13.MouseButton1Click:Connect(function()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[esp13.Text].Character.HumanoidRootPart.CFrame
+			end)
 		end
 	end
-end)
-
-esp13.MouseButton1Click:Connect(function()
-	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[esp13.Text].Character.HumanoidRootPart.CFrame
 end)
 
 MissMain.Name = "MissMain"
