@@ -123,6 +123,7 @@ if OnAutoYo == false then
 	wait(0.3)
 	Frame_2.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
 		OnAutoYo = true
+		AutoTaps = true;
 		while AutoTaps == true do
 			local args = {
 				[1] = false,
