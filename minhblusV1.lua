@@ -51,6 +51,7 @@ local UiStroke1 = Instance.new("UIStroke")
 local UiStroke2 = Instance.new("UIStroke")
 local UiStroke3 = Instance.new("UIStroke")
 local UiStroke4 = Instance.new("UIStroke")
+local Mouse = Player:GetMouse()
 local AutoTaps = true;
 local OnAutoYo = false
 local OEsp = false
@@ -543,4 +544,21 @@ TeleportMain.MouseButton1Click:Connect(function()
 	AutoFarmMain.Visible = false
 	MissMain_2.Visible = false
 	Teleporter.Visible = true
+end)
+function GetCharacter()
+   return game.Players.LocalPlayer.Character
+end
+ 
+function Teleport(pos)
+   local Char = GetCharacter()
+   if Char then
+       Char:MoveTo(pos)
+   end
+end
+ 
+ 
+UIS.InputBegan:Connect(function(input)
+   if input.UserInputType == Enum.UserInputType.MouseButton1 and UIS:IsKeyDown(Enum.KeyCode.LeftControl) then
+       Teleport(Mouse.Hit.p)
+   end
 end)
