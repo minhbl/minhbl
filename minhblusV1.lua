@@ -41,6 +41,7 @@ local UiStroke1 = Instance.new("UIStroke")
 local UiStroke2 = Instance.new("UIStroke")
 local UiStroke3 = Instance.new("UIStroke")
 local UiStroke4 = Instance.new("UIStroke")
+local AutoTaps = true;
 local OnAutoYo = false
 local OEsp = false
 local On = false
@@ -121,12 +122,21 @@ if OnAutoYo == false then
 	Frame_2:TweenPosition(UDim2.new(0.459999979, 0, 0.166666672, 0),"In","Linear",0.3,true)
 	wait(0.3)
 	Frame_2.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
-	OnAutoYo = true
+		OnAutoYo = true
+		while AutoTaps == true do
+			local args = {
+				[1] = false,
+				[2] = "Clicker!"
+			}
+			game:GetService("ReplicatedStorage").Remotes.ClickRemote:FireServer(unpack(args))
+			wait()
+		end
 elseif OnAutoYo == true then
 	Frame_2:TweenPosition(UDim2.new(0.140000001, 0, 0.166666672, 0),"In","Linear",0.3,true)
 	wait(0.3)
 	Frame_2.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
-	OnAutoYo = false
+		OnAutoYo = false
+		AutoTaps = false;
 end
 end)
 
