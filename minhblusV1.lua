@@ -91,7 +91,6 @@ UiStroke4.Thickness = 2
 UiStroke4.Parent = JumpPower
 
 SoiHub.Name = "SoiHub"
-SoiHub.ResetOnSpawn = true
 SoiHub.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 SoiHub.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
