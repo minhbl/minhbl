@@ -6,6 +6,8 @@ game:GetService("StarterGui"):SetCore("SendNotification",{
 local UIS = game:GetService("UserInputService")
 local SoiHub = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
+local Reset = Instance.new("TextButton")
+local Destroy = Instance.new("TextButton")
 local NAme = Instance.new("TextLabel")
 local UICorner = Instance.new("UICorner")
 local Thanh = Instance.new("Frame")
@@ -53,6 +55,7 @@ local AutoTaps = true;
 local OnAutoYo = false
 local OEsp = false
 local On = false
+local Destroy = false
 
 UIS.InputBegan:Connect(function(Input)
 	if Input.KeyCode == Enum.KeyCode.RightControl then
@@ -388,28 +391,6 @@ UIListLayout.Parent = TeleSpped
 UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 UIListLayout.Padding = UDim.new(0, 4)
-
-game:GetService("RunService").RenderStepped:Connect(function()
-	for i,v in pairs (game:GetService("Players"):GetPlayers()) do
-		if v ~= game:GetService("Players").LocalPlayer then
-			local esp13 = Instance.new("TextButton",TeleSpped)
-			esp13.Text  = "???"
-			esp13.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-			esp13.BorderColor3 = Color3.fromRGB(0, 85, 0)
-			esp13.Size = UDim2.new(0, 150,0, 50)
-			esp13.BorderSizePixel = 2
-			esp13.Font = "Cartoon"
-			esp13.TextScaled = true
-			esp13.TextWrapped = true
-			esp13.TextColor3 = Color3.fromRGB(0, 170, 0)
-			esp13.Text = v.Name
-			esp13.Name = v.Name
-			esp13.MouseButton1Click:Connect(function()
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[esp13.Text].Character.HumanoidRootPart.CFrame
-			end)
-		end
-	end
-end)
 
 MissMain.Name = "MissMain"
 MissMain.Parent = Frame
