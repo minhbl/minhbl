@@ -389,19 +389,19 @@ UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 UIListLayout.Padding = UDim.new(0, 4)
 
-local esp13 = Instance.new("TextButton",TeleSpped)
-esp13.Text  = "???"
-esp13.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-esp13.BorderColor3 = Color3.fromRGB(0, 85, 0)
-esp13.Size = UDim2.new(0, 150,0, 50)
-esp13.BorderSizePixel = 2
-esp13.Font = "Cartoon"
-esp13.TextScaled = true
-esp13.TextWrapped = true
-esp13.TextColor3 = Color3.fromRGB(0, 170, 0)
 game:GetService("RunService").RenderStepped:Connect(function()
 	for i,v in pairs (game:GetService("Players"):GetPlayers()) do
 		if v ~= game:GetService("Players").LocalPlayer then
+			local esp13 = Instance.new("TextButton",TeleSpped)
+			esp13.Text  = "???"
+			esp13.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+			esp13.BorderColor3 = Color3.fromRGB(0, 85, 0)
+			esp13.Size = UDim2.new(0, 150,0, 50)
+			esp13.BorderSizePixel = 2
+			esp13.Font = "Cartoon"
+			esp13.TextScaled = true
+			esp13.TextWrapped = true
+			esp13.TextColor3 = Color3.fromRGB(0, 170, 0)
 			esp13.Text = v.Name
 			esp13.Name = v.Name
 		end
