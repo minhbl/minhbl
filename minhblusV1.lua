@@ -18,7 +18,7 @@ local NameUi = Instance.new("TextLabel")
 local Ver = Instance.new("TextLabel")
 
 UI.Name = "UI"
-UI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+UI.Parent = game:GetService("CoreGui")
 UI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Main.Name = "Main"
