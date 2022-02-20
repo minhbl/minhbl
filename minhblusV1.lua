@@ -121,7 +121,7 @@ TextButton.TextWrapped = true
 UICorner.CornerRadius = UDim.new(0, 4)
 UICorner.Parent = TextButton
 TextButton.MouseButton1Click:Connect(function()
-    for i,v in Page:GetChildren() do
+    for i,v in pairs(Page:GetChildren()) do
     v.Visible = false    
     end
     Page_2.Visible = true
