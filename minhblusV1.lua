@@ -1,7 +1,7 @@
-local Hub = ()
+local Hub = {}
 
-function Hub:CreateLib(name)
-name = name or "Name"
+function Hub:CreateLib(namelib)
+namelib = namelib or "Name"
 local UI = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
 local MainCorner = Instance.new("UICorner")
