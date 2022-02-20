@@ -1,133 +1,131 @@
-local minhblus = {}
+local Hub = ()
 
-function minhblus:CreLib(name,verr)
+function Hub:CreateLib(name)
 local UI = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
-local UICorner = Instance.new("UICorner")
-local Tabs = Instance.new("Frame")
-local UICorner_2 = Instance.new("UICorner")
-local TabMain = Instance.new("ScrollingFrame")
+local MainCorner = Instance.new("UICorner")
+local NameUI = Instance.new("TextLabel")
+local TabFrame = Instance.new("Frame")
+local Thanh = Instance.new("Folder")
+local Thanh_2 = Instance.new("Frame")
+local Thanh_3 = Instance.new("Frame")
+local Thanh_4 = Instance.new("Frame")
+local Thanh_5 = Instance.new("Frame")
 local UIListLayout = Instance.new("UIListLayout")
-local Tabs_2 = Instance.new("TextButton")
-local UICorner_3 = Instance.new("UICorner")
-local MainSecl = Instance.new("Frame")
-local UICorner_4 = Instance.new("UICorner")
-local Secl = Instance.new("ScrollingFrame")
-local UIListLayout_2 = Instance.new("UIListLayout")
-local NameUi = Instance.new("TextLabel")
-local Ver = Instance.new("TextLabel")
+local Page = Instance.new("Folder")
 
-UI.Name = "UI"
-UI.Parent = game:GetService("CoreGui")
+local LibName = tostring(math.random(1, 100))..tostring(math.random(1,50))..tostring(math.random(1, 100))
+
+UI.Name = LibName
+UI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 UI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Main.Name = "Main"
 Main.Parent = UI
-Main.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+Main.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
 Main.BorderSizePixel = 0
-Main.Position = UDim2.new(0.192034125, 0, 0.216318801, 0)
-Main.Size = UDim2.new(0, 432, 0, 298)
+Main.Position = UDim2.new(0.185459942, 0, 0.214421257, 0)
+Main.Size = UDim2.new(0, 352, 0, 301)
+
+MainCorner.CornerRadius = UDim.new(0, 4)
+MainCorner.Name = "MainCorner"
+MainCorner.Parent = Main
+
+NameUI.Name = "NameUI"
+NameUI.Parent = Main
+NameUI.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+NameUI.BackgroundTransparency = 1.000
+NameUI.BorderSizePixel = 0
+NameUI.Position = UDim2.new(0.023584906, 0, 0.0199335553, 0)
+NameUI.Size = UDim2.new(0, 95, 0, 29)
+NameUI.Font = Enum.Font.SourceSans
+NameUI.Text = name
+NameUI.TextColor3 = Color3.fromRGB(205, 205, 205)
+NameUI.TextScaled = true
+NameUI.TextSize = 14.000
+NameUI.TextWrapped = true
+NameUI.TextXAlignment = Enum.TextXAlignment.Left
+
+TabFrame.Name = "TabFrame"
+TabFrame.Parent = Main
+TabFrame.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
+TabFrame.BorderSizePixel = 0
+TabFrame.Position = UDim2.new(0.0482954532, 0, 0.136212617, 0)
+TabFrame.Size = UDim2.new(0, 315, 0, 25)
+
+UIListLayout.Parent = TabFrame
+UIListLayout.FillDirection = Enum.FillDirection.Horizontal
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
+Thanh.Name = "Thanh"
+Thanh.Parent = Main
+
+Thanh_2.Name = "Thanh"
+Thanh_2.Parent = Thanh
+Thanh_2.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
+Thanh_2.BorderSizePixel = 0
+Thanh_2.Position = UDim2.new(0.9375, 0, 0.225913614, 0)
+Thanh_2.Size = UDim2.new(0, 2, 0, 210)
+
+Thanh_3.Name = "Thanh"
+Thanh_3.Parent = Thanh
+Thanh_3.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
+Thanh_3.BorderSizePixel = 0
+Thanh_3.Position = UDim2.new(0.0454545468, 0, 0.219269097, 0)
+Thanh_3.Size = UDim2.new(0, 316, 0, 2)
+
+Thanh_4.Name = "Thanh"
+Thanh_4.Parent = Thanh
+Thanh_4.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
+Thanh_4.BorderSizePixel = 0
+Thanh_4.Position = UDim2.new(0.0454545468, 0, 0.225913614, 0)
+Thanh_4.Size = UDim2.new(0, 2, 0, 210)
+
+Thanh_5.Name = "Thanh"
+Thanh_5.Parent = Thanh
+Thanh_5.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
+Thanh_5.BorderSizePixel = 0
+Thanh_5.Position = UDim2.new(0.0454545468, 0, 0.91694355, 0)
+Thanh_5.Size = UDim2.new(0, 316, 0, 2)
+
+Page.Name = "Page"
+Page.Parent = Main
+function Hub:CreateTab(name)
+local UIListLayout_2 = Instance.new("UIListLayout")
+local Page_2 = Instance.new("Frame")
+local TextButton = Instance.new("TextButton")
+local UICorner = Instance.new("UICorner")
+
+Page_2.Name = "Page"
+Page_2.Parent = Page
+Page_2.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
+Page_2.BorderSizePixel = 0
+Page_2.Position = UDim2.new(0.0653409064, 0, 0.239202663, 0)
+Page_2.Size = UDim2.new(0, 303, 0, 198)
+
+UIListLayout_2.Parent = Page_2
+UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
+
+TextButton.Parent = TabFrame
+TextButton.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
+TextButton.BorderSizePixel = 0
+TextButton.Position = UDim2.new(0.0549999997, 0, 0, 0)
+TextButton.Size = UDim2.new(0, 53, 0, 25)
+TextButton.Font = Enum.Font.SourceSans
+TextButton.Text = name
+TextButton.TextColor3 = Color3.fromRGB(205, 205, 205)
+TextButton.TextScaled = true
+TextButton.TextSize = 14.000
+TextButton.TextWrapped = true
 
 UICorner.CornerRadius = UDim.new(0, 4)
-UICorner.Parent = Main
-
-Tabs.Name = "Tabs"
-Tabs.Parent = Main
-Tabs.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
-Tabs.BorderSizePixel = 0
-Tabs.Position = UDim2.new(0.020833334, 0, 0.110738255, 0)
-Tabs.Size = UDim2.new(0, 100, 0, 254)
-
-UICorner_2.CornerRadius = UDim.new(0, 4)
-UICorner_2.Parent = Tabs
-
-TabMain.Name = "TabMain"
-TabMain.Parent = Tabs
-TabMain.Active = true
-TabMain.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TabMain.BackgroundTransparency = 1.000
-TabMain.BorderSizePixel = 0
-TabMain.Position = UDim2.new(0, 0, 0.0433070883, 0)
-TabMain.Size = UDim2.new(0, 100, 0, 230)
-TabMain.BottomImage = ""
-TabMain.MidImage = ""
-TabMain.TopImage = ""
-
-UIListLayout.Parent = TabMain
-UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
-UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-UIListLayout.Padding = UDim.new(0, 8)
-
-Tabs_2.Name = "Tabs"
-Tabs_2.Parent = TabMain
-Tabs_2.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-Tabs_2.BorderSizePixel = 0
-Tabs_2.Position = UDim2.new(0.159999996, 0, 0, 0)
-Tabs_2.Size = UDim2.new(0, 77, 0, 35)
-Tabs_2.Font = Enum.Font.Cartoon
-Tabs_2.Text = "Main"
-Tabs_2.TextColor3 = Color3.fromRGB(255, 255, 255)
-Tabs_2.TextScaled = true
-Tabs_2.TextSize = 14.000
-Tabs_2.TextWrapped = true
-
-UICorner_3.CornerRadius = UDim.new(0, 4)
-UICorner_3.Parent = Tabs_2
-
-MainSecl.Name = "MainSecl"
-MainSecl.Parent = Main
-MainSecl.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
-MainSecl.BorderSizePixel = 0
-MainSecl.Position = UDim2.new(0.280092597, 0, 0.110738255, 0)
-MainSecl.Size = UDim2.new(0, 298, 0, 254)
-
-UICorner_4.CornerRadius = UDim.new(0, 4)
-UICorner_4.Parent = MainSecl
-
-Secl.Name = "Secl"
-Secl.Parent = MainSecl
-Secl.Active = true
-Secl.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Secl.BackgroundTransparency = 1.000
-Secl.BorderSizePixel = 0
-Secl.Position = UDim2.new(0.0402684547, 0, 0.0433070883, 0)
-Secl.Size = UDim2.new(0, 286, 0, 229)
-Secl.BottomImage = ""
-Secl.MidImage = ""
-Secl.TopImage = ""
-
-UIListLayout_2.Parent = Secl
-UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
-UIListLayout_2.Padding = UDim.new(0, 8)
-
-
-NameUi.Name = "NameUi"
-NameUi.Parent = Main
-NameUi.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-NameUi.BackgroundTransparency = 1.000
-NameUi.BorderSizePixel = 0
-NameUi.Position = UDim2.new(0.020833334, 0, 0, 0)
-NameUi.Size = UDim2.new(0, 100, 0, 33)
-NameUi.Font = Enum.Font.Cartoon
-NameUi.Text = name
-NameUi.TextColor3 = Color3.fromRGB(255, 255, 255)
-NameUi.TextScaled = true
-NameUi.TextSize = 14.000
-NameUi.TextWrapped = true
-NameUi.TextXAlignment = Enum.TextXAlignment.Left
-
-Ver.Name = "Ver"
-Ver.Parent = Main
-Ver.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Ver.BackgroundTransparency = 1.000
-Ver.BorderSizePixel = 0
-Ver.Position = UDim2.new(0.73842591, 0, 0, 0)
-Ver.Size = UDim2.new(0, 100, 0, 33)
-Ver.Font = Enum.Font.Cartoon
-Ver.Text = verr
-Ver.TextColor3 = Color3.fromRGB(255, 255, 255)
-Ver.TextScaled = true
-Ver.TextSize = 14.000
-Ver.TextWrapped = true
+UICorner.Parent = TextButton
+TextButton.MouseButton1Click:Connect(function()
+    for i,v in Page:GetChildren() do
+    v.Visible = false    
+    end
+    Page_2.Visible = true
+end)
 end
-return minhblus
+end
+return Hub
