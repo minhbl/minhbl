@@ -1,6 +1,7 @@
-local Hub = {}
+local Hub = ()
 
-function Hub:CreateLib(namelib)
+function Hub:CreateLib(name)
+name = name or "Name"
 local UI = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
 local MainCorner = Instance.new("UICorner")
@@ -39,7 +40,7 @@ NameUI.BorderSizePixel = 0
 NameUI.Position = UDim2.new(0.023584906, 0, 0.0199335553, 0)
 NameUI.Size = UDim2.new(0, 95, 0, 29)
 NameUI.Font = Enum.Font.SourceSans
-NameUI.Text = namelib or "Name"
+NameUI.Text = name
 NameUI.TextColor3 = Color3.fromRGB(205, 205, 205)
 NameUI.TextScaled = true
 NameUI.TextSize = 14.000
