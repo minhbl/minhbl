@@ -1,4 +1,4 @@
-local Hub = ()
+local Hub = {}
 
 function Hub:CreateLib(name)
 local UI = Instance.new("ScreenGui")
