@@ -126,7 +126,13 @@ TextButton.MouseButton1Click:Connect(function()
     for i,v in pairs(Page:GetChildren()) do
     v.Visible = false    
     end
+     for i,v in pairs(TabFrame:GetChildren()) do
+        if v ~= "UIListLayout" then
+        v.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
+        end
+    end
     Page_2.Visible = true
+    TextButton.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
 end)
 end
 end
