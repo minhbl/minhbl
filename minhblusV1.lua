@@ -96,6 +96,8 @@ function Tabs.AddTabs(nametab)
 
 local TabsButton = Instance.new("TextButton")
 local UICorner = Instance.new("UICorner")
+local Page2 = Instance.new("ScrollingFrame")
+local UIListLayout2 = Instance.new("UIListLayout")
 
 TabsButton.Name = "TabsButton"
 TabsButton.Parent = TabFrame
@@ -112,6 +114,33 @@ TabsButton.TextWrapped = true
 
 UICorner.CornerRadius = UDim.new(0, 4)
 UICorner.Parent = TabsButton
+
+Page2.Name = "Page"
+Page2.Parent = Page
+Page2.Active = true
+Page2.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
+Page2.BorderSizePixel = 0
+Page2.Position = UDim2.new(0.0649999976, 0, 0.238999993, 0)
+Page2.Size = UDim2.new(0, 303, 0, 198)
+Page2.ScrollBarThickness = 0
+
+UIListLayout2.Parent = Page2
+UIListLayout2.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout2.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout2.Padding = UDim.new(0, 4)
+
+TabsButton.MouseButton1Click:Connect(function()
+for i,v in pairs(Page:GetChildren) do
+    v.Visible = false
+    end
+for i,v in pairs(TabFrame:GetChildren) do
+    if v.Name ~= "UIListLayout" then
+    v.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
+    end
+    Page2.Visible = true
+    v.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
+end   
+end)
 end 
 return Tabs
 end
