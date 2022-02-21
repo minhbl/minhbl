@@ -1,5 +1,6 @@
 local Hub = {}
-local usi = game:GetService("UserInputService")
+local UIS = game:GetService("UserInputService")
+local Mouse = game.Players.LocalPlayer:GetMouse()
 local Circle2 = Instance.new("ImageLabel")
 Circle2.Name = "Circle2"
 Circle2.Parent = nil
@@ -213,7 +214,6 @@ function Hub.CreLib(namehub)
 			ClicksButtonCorner.Name = "ClicksButtonCorner"
 			ClicksButtonCorner.Parent = ClicksButton
             ClicksButton.MouseButton1Click:Connect(function()
-			local Mouse = game.Players.LocalPlayer:GetMouse()
             CircleClick(ClicksButton, Mouse.X, Mouse.Y)
             pcall(callback)    
             end)
@@ -383,23 +383,22 @@ function Hub.CreLib(namehub)
 					local ValueNum = 0
 
 					Sliderbutton.MouseButton1Down:Connect(function()
-					local mouse2 = game.Players.LocalPlayer:GetMouse()
 					ValueNum = math.floor((((tonumber(max) - tonumber(min)) / Sliderframe.AbsoluteSize.X) * Sliderframe_2.AbsoluteSize.X) + tonumber(min)) or 0
 					TextLabel.Text = ValueNum
 					pcall(callback,ValueNum)
-					Sliderframe_2.Size = UDim2.new(0, math.clamp(mouse2.X - Sliderframe.AbsolutePosition.X,0,Sliderframe_2.AbsoluteSize.X),0,6)
-					moveconnection = mouse2.Move:Connect(function()
+					Sliderframe_2.Size = UDim2.new(0, math.clamp(Mouse.X - Sliderframe.AbsolutePosition.X,0,Sliderframe_2.AbsoluteSize.X),0,6)
+					moveconnection = Mouse.Move:Connect(function()
 					TextLabel.Text = ValueNum
 					ValueNum = math.floor((((tonumber(max) - tonumber(min)) / Sliderframe.AbsoluteSize.X) * Sliderframe_2.AbsoluteSize.X) + tonumber(min))
 					pcall(callback,ValueNum)
-					Sliderframe_2.Size = UDim2.new(0, math.clamp(mouse2.X - Sliderframe.AbsolutePosition.X,0,Sliderframe_2.AbsoluteSize.X),0,6)
+					Sliderframe_2.Size = UDim2.new(0, math.clamp(Mouse.X - Sliderframe.AbsolutePosition.X,0,Sliderframe_2.AbsoluteSize.X),0,6)
 					end)
-					relseaconnection = usi.InputEnded:Connect(function(Mousee)
+					relseaconnection = UIS.InputEnded:Connect(function(Mousee)
 					if Mousee.UserInputType == Enum.UserInputType.MouseButton1 then
 						ValueNum = math.floor((((tonumber(max) - tonumber(min)) / Sliderframe.AbsoluteSize.X) * Sliderframe_2.AbsoluteSize.X) + tonumber(min))
 						TextLabel.Text = ValueNum
 						pcall(callback,ValueNum)
-						Sliderframe_2.Size = UDim2.new(0, math.clamp(mouse2.X - Sliderframe.AbsolutePosition.X,0,Sliderframe_2.AbsoluteSize.X),0,6)
+						Sliderframe_2.Size = UDim2.new(0, math.clamp(Mouse.X - Sliderframe.AbsolutePosition.X,0,Sliderframe_2.AbsoluteSize.X),0,6)
 						moveconnection:Disconnect()
 						relseaconnection:Disconnect()
 						    end
