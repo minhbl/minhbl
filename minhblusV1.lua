@@ -124,10 +124,10 @@ UICorner.CornerRadius = UDim.new(0, 4)
 UICorner.Parent = TextButton
 TextButton.MouseButton1Click:Connect(function()
     for i,v in pairs(Page:GetChildren()) do
-    v.Visible = false    
+    v.Visible = false
     end
-     for i,v in pairs(TabFrame:GetChildren()) do
-        if v ~= "UIListLayout" then
+    for i,v in pairs(TabFrame:GetChildren()) do
+        if v.Name ~= "UIListLayout" then
         v.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
         end
     end
