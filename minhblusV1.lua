@@ -1,5 +1,4 @@
 local Hub = {}
-local Tabs = {}
 
 function Hub.CreateLib(name)
 local UI = Instance.new("ScreenGui")
@@ -92,7 +91,7 @@ Thanh_5.Size = UDim2.new(0, 316, 0, 2)
 Page.Name = "Page"
 Page.Parent = Main
 
-function Tabs.CreateTab(nametab)
+function Hub.CreateTab(nametab)
 
 local TextButton = Instance.new("TextButton")
 local UICorner = Instance.new("UICorner")
@@ -141,7 +140,7 @@ TextButton.MouseButton1Click:Connect(function()
 end)
 
 
-function Sections.CreateSec(namesec)
+function Hub.CreateSec(namesec)
     local Section = Instance.new("Frame")
     local SectionCorner = Instance.new("UICorner")
     
@@ -155,8 +154,6 @@ function Sections.CreateSec(namesec)
     SectionCorner.Name = "SectionCorner"
     SectionCorner.Parent = Section
     end
-    return Sections
 end
-return Tabs
 end
 return Hub
