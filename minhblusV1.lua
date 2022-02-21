@@ -382,7 +382,7 @@ function Hub.CreLib(namehub)
 
 					local ValueNum = 0
 
-					function update()
+					Sliderbutton.MouseButton1Down:Connect(function()
 					local mouse2 = game.Players.LocalPlayer:GetMouse()
 					ValueNum = math.floor((((tonumber(max) - tonumber(min)) / Sliderframe.AbsoluteSize.X) * Sliderframe_2.AbsoluteSize.X) + tonumber(min)) or 0
 					pcall(function()
@@ -402,10 +402,9 @@ function Hub.CreLib(namehub)
 						Sliderframe_2.Size = UDim2.new(0, math.clamp(mouse2.X - Sliderframe.AbsolutePosition.X,0,Sliderframe_2.AbsoluteSize.X),0,6)
 						moveconnection:Disconnect()
 						relseaconnection:Disconnect()
-						end
+						    end
+					    end)
 					end)
-					end
-					Sliderbutton.MouseButton1Down:Connect(update)
 				end
 			end
         end  
