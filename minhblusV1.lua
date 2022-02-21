@@ -142,7 +142,7 @@ function Hub.CreLib(namehub)
 			end   
 		end)
         local Items = {}
-		function Items.Btn(namebtn) 
+		function Items.Btn(namebtn,callback) 
 
 			local Button = Instance.new("Frame")
 			local ButtonCorner = Instance.new("UICorner")
@@ -177,7 +177,10 @@ function Hub.CreLib(namehub)
 			ClicksButtonCorner.CornerRadius = UDim.new(0, 4)
 			ClicksButtonCorner.Name = "ClicksButtonCorner"
 			ClicksButtonCorner.Parent = ClicksButton
-		end
+            ClicksButton.MouseButton1Click:Connect(function()
+            pcall(callback)    
+            end)
+        end
         return Items
 	end 
 	return Tabs
