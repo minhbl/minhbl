@@ -178,6 +178,7 @@ function Hub.CreLib(namehub)
 			ClicksButtonCorner.Name = "ClicksButtonCorner"
 			ClicksButtonCorner.Parent = ClicksButton
             ClicksButton.MouseButton1Click:Connect(function()
+            CircleClick(ClicksButton, Mouse.X, Mouse.Y)
             pcall(callback)    
             end)
         end
