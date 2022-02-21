@@ -1,5 +1,5 @@
 local Hub = {}
-
+local usi = game:GetService("UserInputService")
 local Circle2 = Instance.new("ImageLabel")
 Circle2.Name = "Circle2"
 Circle2.Parent = nil
@@ -268,7 +268,150 @@ function Hub.CreLib(namehub)
 				pcall(callback,Toggletool)
 				end
 				end)
-			end 
+				function Items.AddSlider(namesliderr,min,max,callback)
+					local Slider = Instance.new("Frame")
+					local SliderCorner = Instance.new("UICorner")
+					local Sliderframe = Instance.new("Frame")
+					local SliderCorner_2 = Instance.new("UICorner")
+					local Sliderbutton = Instance.new("TextButton")
+					local SliderCorner_3 = Instance.new("UICorner")
+					local Sliderframe_2 = Instance.new("Frame")
+					local SliderCorner_4 = Instance.new("UICorner")
+					local NameSlider = Instance.new("TextLabel")
+					local Min = Instance.new("TextLabel")
+					local Max = Instance.new("TextLabel")
+					local TextLabel = Instance.new("TextLabel")
+					
+					Slider.Name = "Slider"
+					Slider.Parent = Page2
+					Slider.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
+					Slider.Position = UDim2.new(0, 0, 0.00664451811, 0)
+					Slider.Size = UDim2.new(0, 303, 0, 37)
+					
+					SliderCorner.CornerRadius = UDim.new(0, 4)
+					SliderCorner.Name = "SliderCorner"
+					SliderCorner.Parent = Slider
+					
+					Sliderframe.Name = "Sliderframe"
+					Sliderframe.Parent = Slider
+					Sliderframe.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
+					Sliderframe.Position = UDim2.new(0.0726072639, 0, 0.621621609, 0)
+					Sliderframe.Size = UDim2.new(0, 258, 0, 6)
+					
+					SliderCorner_2.CornerRadius = UDim.new(0, 4)
+					SliderCorner_2.Name = "SliderCorner"
+					SliderCorner_2.Parent = Sliderframe
+					
+					Sliderbutton.Name = "Sliderbutton"
+					Sliderbutton.Parent = Sliderframe
+					Sliderbutton.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+					Sliderbutton.BackgroundTransparency = 1.000
+					Sliderbutton.Size = UDim2.new(0, 258, 0, 6)
+					Sliderbutton.Font = Enum.Font.SourceSans
+					Sliderbutton.Text = ""
+					Sliderbutton.TextColor3 = Color3.fromRGB(0, 0, 0)
+					Sliderbutton.TextSize = 14.000
+					
+					SliderCorner_3.CornerRadius = UDim.new(0, 4)
+					SliderCorner_3.Name = "SliderCorner"
+					SliderCorner_3.Parent = Sliderbutton
+					
+					Sliderframe_2.Name = "Sliderframe"
+					Sliderframe_2.Parent = Sliderframe
+					Sliderframe_2.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+					Sliderframe_2.Size = UDim2.new(0, 191, 0, 6)
+					
+					SliderCorner_4.CornerRadius = UDim.new(0, 4)
+					SliderCorner_4.Name = "SliderCorner"
+					SliderCorner_4.Parent = Sliderframe_2
+					
+					NameSlider.Name = "NameSlider"
+					NameSlider.Parent = Slider
+					NameSlider.BackgroundColor3 = Color3.fromRGB(205, 205, 205)
+					NameSlider.BackgroundTransparency = 1.000
+					NameSlider.BorderSizePixel = 0
+					NameSlider.Position = UDim2.new(0.178217828, 0, 0, 0)
+					NameSlider.Size = UDim2.new(0, 200, 0, 23)
+					NameSlider.Font = Enum.Font.SourceSans
+					NameSlider.Text = namesliderr
+					NameSlider.TextColor3 = Color3.fromRGB(255, 255, 255)
+					NameSlider.TextScaled = true
+					NameSlider.TextSize = 14.000
+					NameSlider.TextWrapped = true
+					
+					Min.Name = "Min"
+					Min.Parent = Slider
+					Min.BackgroundColor3 = Color3.fromRGB(205, 205, 205)
+					Min.BackgroundTransparency = 1.000
+					Min.BorderSizePixel = 0
+					Min.Position = UDim2.new(0.0165016502, 0, 0, 0)
+					Min.Size = UDim2.new(0, 30, 0, 23)
+					Min.Font = Enum.Font.SourceSans
+					Min.Text = tostring(min)
+					Min.TextColor3 = Color3.fromRGB(255, 255, 255)
+					Min.TextScaled = true
+					Min.TextSize = 14.000
+					Min.TextWrapped = true
+					
+					Max.Name = "Max"
+					Max.Parent = Slider
+					Max.BackgroundColor3 = Color3.fromRGB(205, 205, 205)
+					Max.BackgroundTransparency = 1.000
+					Max.BorderSizePixel = 0
+					Max.Position = UDim2.new(0.881188095, 0, 0, 0)
+					Max.Size = UDim2.new(0, 30, 0, 23)
+					Max.Font = Enum.Font.SourceSans
+					Max.Text = tostring(max)
+					Max.TextColor3 = Color3.fromRGB(255, 255, 255)
+					Max.TextScaled = true
+					Max.TextSize = 14.000
+					Max.TextWrapped = true
+					
+					TextLabel.Parent = Slider
+					TextLabel.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
+					TextLabel.BackgroundTransparency = 1.000
+					TextLabel.BorderSizePixel = 0
+					TextLabel.Position = UDim2.new(0.660066009, 0, -0.108108118, 0)
+					TextLabel.Size = UDim2.new(0, 30, 0, 30)
+					TextLabel.Font = Enum.Font.SourceSans
+					TextLabel.Text = tostring(min)
+					TextLabel.TextColor3 = Color3.fromRGB(0, 255, 255)
+					TextLabel.TextScaled = true
+					TextLabel.TextSize = 14.000
+					TextLabel.TextWrapped = true
+
+					local ValueNum = 0
+
+					function update()
+					local mouse2 = game.Players.LocalPlayer:GetMouse()
+					ValueNum = math.floor((((tonumber(max) - tonumber(min)) / Sliderframe_2.AbsoluteSize.X) * Sliderframe.AbsoluteSize.X) + tonumber(min)) or 0
+					pcall(function()
+					callback(ValueNum)	
+					end)
+					Sliderframe_2.Size = UDim2.new(0, math.clamp(mouse2.X - Sliderframe.AbsolutePosition.X,0,Sliderframe_2.AbsoluteSize.X),0,15)
+					moveconnection = mouse2.Move:Connect(function()
+					TextLabel = ValueNum
+					ValueNum = math.floor((((tonumber(max) - tonumber(min)) / Sliderframe_2.AbsoluteSize.X) * Sliderframe.AbsoluteSize.X) + tonumber(min))
+					pcall(function()
+					callback(ValueNum)	
+					end)
+					Sliderframe_2.Size = UDim2.new(0, math.clamp(mouse2.X - Sliderframe.AbsolutePosition.X,0,Sliderframe_2.AbsoluteSize.X),0,15)
+					end)
+					relseaconnection = usi.InputEnded:Connect(function(Mousee)
+					if Mousee.UserInputType == Enum.UserInputType.MouseButton1 then
+						ValueNum = math.floor((((tonumber(max) - tonumber(min)) / Sliderframe_2.AbsoluteSize.X) * Sliderframe.AbsoluteSize.X) + tonumber(min))
+						pcall(function()
+						callback(ValueNum)	
+						end)
+						Sliderframe_2.Size = UDim2.new(0, math.clamp(mouse2.X - Sliderframe.AbsolutePosition.X,0,Sliderframe_2.AbsoluteSize.X),0,15)
+						moveconnection:Disconnect()
+						relseaconnection:Disconnect()
+						end
+					end)
+					end
+					Sliderbutton.MouseButton1Down:Connect(update)
+				end
+			end
         end  
         return Items
 	end 
