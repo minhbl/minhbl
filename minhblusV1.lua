@@ -1,6 +1,7 @@
 local Hub = {}
 
 function Hub.CreLib(namehub)
+local LibName = tostring(math.random(1, 100))..tostring(math.random(1,50))..tostring(math.random(1, 100))
 local UI = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
 local MainCorner = Instance.new("UICorner")
@@ -13,8 +14,6 @@ local Thanh_3 = Instance.new("Frame")
 local Thanh_4 = Instance.new("Frame")
 local Thanh_5 = Instance.new("Frame")
 local Page = Instance.new("Folder")
-
-local LibName = tostring(math.random(1, 100))..tostring(math.random(1,50))..tostring(math.random(1, 100))
 
 UI.Name = LibName
 UI.Parent = game:GetService("CoreGui")
@@ -92,5 +91,28 @@ Thanh_5.Size = UDim2.new(0, 316, 0, 2)
 
 Page.Name = "Page"
 Page.Parent = Main
+local Tabs = {}
+function Tabs.AddTabs(nametab) 
+
+local TabsButton = Instance.new("TextButton")
+local UICorner = Instance.new("UICorner")
+
+TabsButton.Name = "TabsButton"
+TabsButton.Parent = game.StarterGui.UI.Main.TabFrame
+TabsButton.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
+TabsButton.BorderSizePixel = 0
+TabsButton.Position = UDim2.new(0.0549999997, 0, 0, 0)
+TabsButton.Size = UDim2.new(0, 53, 0, 25)
+TabsButton.Font = Enum.Font.SourceSans
+TabsButton.Text = nametab
+TabsButton.TextColor3 = Color3.fromRGB(205, 205, 205)
+TabsButton.TextScaled = true
+TabsButton.TextSize = 14.000
+TabsButton.TextWrapped = true
+
+UICorner.CornerRadius = UDim.new(0, 4)
+UICorner.Parent = TabsButton
+end 
+return Tabs
 end
 return Hub
