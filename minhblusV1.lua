@@ -138,7 +138,7 @@ function Hub.CreLib(namehub)
 					v.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
 				end
 				Page2.Visible = true
-				v.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
+				TabsButton.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
 			end   
 		end)
 
