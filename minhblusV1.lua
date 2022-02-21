@@ -1,17 +1,17 @@
 local Hub = {}
 
-function Hub.CreateLib(name)
+function Hub.CreLib(namehub)
 local UI = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
 local MainCorner = Instance.new("UICorner")
 local NameUI = Instance.new("TextLabel")
 local TabFrame = Instance.new("Frame")
+local UIListLayout = Instance.new("UIListLayout")
 local Thanh = Instance.new("Folder")
 local Thanh_2 = Instance.new("Frame")
 local Thanh_3 = Instance.new("Frame")
 local Thanh_4 = Instance.new("Frame")
 local Thanh_5 = Instance.new("Frame")
-local UIListLayout = Instance.new("UIListLayout")
 local Page = Instance.new("Folder")
 
 local LibName = tostring(math.random(1, 100))..tostring(math.random(1,50))..tostring(math.random(1, 100))
@@ -22,9 +22,11 @@ UI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Main.Name = "Main"
 Main.Parent = UI
+Main.Active = true
+Main.Draggable = true
 Main.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
 Main.BorderSizePixel = 0
-Main.Position = UDim2.new(0.185459942, 0, 0.214421257, 0)
+Main.Position = UDim2.new(0.232358575, 0, 0.214421257, 0)
 Main.Size = UDim2.new(0, 352, 0, 301)
 
 MainCorner.CornerRadius = UDim.new(0, 4)
@@ -39,7 +41,7 @@ NameUI.BorderSizePixel = 0
 NameUI.Position = UDim2.new(0.023584906, 0, 0.0199335553, 0)
 NameUI.Size = UDim2.new(0, 95, 0, 29)
 NameUI.Font = Enum.Font.SourceSans
-NameUI.Text = name
+NameUI.Text = namehub
 NameUI.TextColor3 = Color3.fromRGB(205, 205, 205)
 NameUI.TextScaled = true
 NameUI.TextSize = 14.000
@@ -91,69 +93,5 @@ Thanh_5.Size = UDim2.new(0, 316, 0, 2)
 Page.Name = "Page"
 Page.Parent = Main
 
-function Hub.CreateTab(nametab)
-
-local TextButton = Instance.new("TextButton")
-local UICorner = Instance.new("UICorner")
-local Page_2 = Instance.new("ScrollingFrame")
-local UIListLayout_2 = Instance.new("UIListLayout")
-local Sections = {}
-
-Page_2.Name = "Page"
-Page_2.Parent = Page
-Page_2.Active = true
-Page_2.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
-Page_2.BorderSizePixel = 0
-Page_2.Position = UDim2.new(0.0649999976, 0, 0.238999993, 0)
-Page_2.Size = UDim2.new(0, 303, 0, 198)
-Page_2.ScrollBarThickness = 0
-
-UIListLayout.Parent = Page_2
-UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-UIListLayout.Padding = UDim.new(0, 4)
-
-TextButton.Parent = TabFrame
-TextButton.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
-TextButton.BorderSizePixel = 0
-TextButton.Position = UDim2.new(0.0549999997, 0, 0, 0)
-TextButton.Size = UDim2.new(0, 53, 0, 25)
-TextButton.Font = Enum.Font.SourceSans
-TextButton.Text = nametab
-TextButton.TextColor3 = Color3.fromRGB(205, 205, 205)
-TextButton.TextScaled = true
-TextButton.TextSize = 14.000
-TextButton.TextWrapped = true
-
-UICorner.CornerRadius = UDim.new(0, 4)
-UICorner.Parent = TextButton
-TextButton.MouseButton1Click:Connect(function()
-    for i,v in pairs(Page:GetChildren()) do
-    v.Visible = false
-    end
-    for i,v in pairs(TabFrame:GetChildren()) do
-        if v.Name ~= "UIListLayout" then
-        v.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
-        end
-    end
-    Page_2.Visible = true
-    TextButton.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
-end)
-
-
-function Hub.CreateSec(namesec)
-    local Section = Instance.new("Frame")
-    local SectionCorner = Instance.new("UICorner")
-    
-    Section.Name = "Section"
-    Section.Parent = Page_2
-    Section.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
-    Section.Position = UDim2.new(0.00495049497, 0, 0, 0)
-    Section.Size = UDim2.new(0, 300, 0, 30)
-    
-    SectionCorner.CornerRadius = UDim.new(0, 4)
-    SectionCorner.Name = "SectionCorner"
-    SectionCorner.Parent = Section
-    end
-end
 end
 return Hub
