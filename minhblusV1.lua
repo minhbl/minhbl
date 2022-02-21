@@ -272,9 +272,11 @@ function Hub.CreLib(namehub)
 				if Toggletool == false then
 				FrameTOglle.Visible = true
 				Toggletool = true
+				pcall(callback,Toggletool)
 				elseif Toggletool == true then
 				FrameTOglle.Visible = false
-				Toggletool = false	
+				Toggletool = false
+				pcall(callback,Toggletool)
 				end
 				end)
 			end 
