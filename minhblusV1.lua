@@ -225,7 +225,7 @@ function Hub.CreLib(namehub)
 				local FrameTOglle = Instance.new("ImageLabel")
 				
 				Toggle.Name = "Toggle"
-				Toggle.Parent = game.StarterGui.UI.Main.Page
+				Toggle.Parent = Page2
 				Toggle.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
 				Toggle.Size = UDim2.new(0, 303, 0, 37)
 				
