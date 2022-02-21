@@ -367,12 +367,12 @@ function Hub.CreLib(namehub)
 					Max.TextSize = 14.000
 					Max.TextWrapped = true
 					
-					TextLabel.Parent = Slider
+					TextLabel.Parent = Sliderframe_2
 					TextLabel.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
 					TextLabel.BackgroundTransparency = 1.000
 					TextLabel.BorderSizePixel = 0
-					TextLabel.Position = UDim2.new(0.660066009, 0, -0.108108118, 0)
-					TextLabel.Size = UDim2.new(0, 30, 0, 30)
+					TextLabel.Position = UDim2.new(0.928035378, 0, -3.66666651, 0)
+					TextLabel.Size = UDim2.new(0, 30, 0, 22)
 					TextLabel.Font = Enum.Font.SourceSans
 					TextLabel.Text = tostring(min)
 					TextLabel.TextColor3 = Color3.fromRGB(0, 255, 255)
@@ -388,14 +388,14 @@ function Hub.CreLib(namehub)
 					pcall(function()
 					callback(ValueNum)	
 					end)
-					Sliderframe_2.Size = UDim2.new(0, math.clamp(mouse2.X - Sliderframe.AbsolutePosition.X,0,Sliderframe_2.AbsoluteSize.X),0,15)
+					Sliderframe_2.Size = UDim2.new(0, math.clamp(mouse2.X - Sliderframe.AbsolutePosition.X,0,Sliderframe_2.AbsoluteSize.X),0,6)
 					moveconnection = mouse2.Move:Connect(function()
 					TextLabel.Text = ValueNum
 					ValueNum = math.floor((((tonumber(max) - tonumber(min)) / Sliderframe_2.AbsoluteSize.X) * Sliderframe.AbsoluteSize.X) + tonumber(min))
 					pcall(function()
-					callback(ValueNum)	
+					callback(ValueNum)
 					end)
-					Sliderframe_2.Size = UDim2.new(0, math.clamp(mouse2.X - Sliderframe.AbsolutePosition.X,0,Sliderframe_2.AbsoluteSize.X),0,15)
+					Sliderframe_2.Size = UDim2.new(0, math.clamp(mouse2.X - Sliderframe.AbsolutePosition.X,0,Sliderframe_2.AbsoluteSize.X),0,6)
 					end)
 					relseaconnection = usi.InputEnded:Connect(function(Mousee)
 					if Mousee.UserInputType == Enum.UserInputType.MouseButton1 then
@@ -403,7 +403,7 @@ function Hub.CreLib(namehub)
 						pcall(function()
 						callback(ValueNum)	
 						end)
-						Sliderframe_2.Size = UDim2.new(0, math.clamp(mouse2.X - Sliderframe.AbsolutePosition.X,0,Sliderframe_2.AbsoluteSize.X),0,15)
+						Sliderframe_2.Size = UDim2.new(0, math.clamp(mouse2.X - Sliderframe.AbsolutePosition.X,0,Sliderframe_2.AbsoluteSize.X),0,6)
 						moveconnection:Disconnect()
 						relseaconnection:Disconnect()
 						end
