@@ -390,7 +390,7 @@ function Hub.CreLib(namehub)
 					end)
 					Sliderframe_2.Size = UDim2.new(0, math.clamp(mouse2.X - Sliderframe.AbsolutePosition.X,0,Sliderframe_2.AbsoluteSize.X),0,15)
 					moveconnection = mouse2.Move:Connect(function()
-					TextLabel = ValueNum
+					TextLabel.Text = ValueNum
 					ValueNum = math.floor((((tonumber(max) - tonumber(min)) / Sliderframe_2.AbsoluteSize.X) * Sliderframe.AbsoluteSize.X) + tonumber(min))
 					pcall(function()
 					callback(ValueNum)	
