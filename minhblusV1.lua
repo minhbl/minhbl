@@ -385,9 +385,8 @@ function Hub.CreLib(namehub)
 					Sliderbutton.MouseButton1Down:Connect(function()
 					local mouse2 = game.Players.LocalPlayer:GetMouse()
 					ValueNum = math.floor((((tonumber(max) - tonumber(min)) / Sliderframe.AbsoluteSize.X) * Sliderframe_2.AbsoluteSize.X) + tonumber(min)) or 0
-					pcall(function()
-					callback(ValueNum)	
-					end)
+					TextLabel.Text = ValueNum
+					pcall(callback,ValueNum)
 					Sliderframe_2.Size = UDim2.new(0, math.clamp(mouse2.X - Sliderframe.AbsolutePosition.X,0,Sliderframe_2.AbsoluteSize.X),0,6)
 					moveconnection = mouse2.Move:Connect(function()
 					TextLabel.Text = ValueNum
@@ -398,6 +397,7 @@ function Hub.CreLib(namehub)
 					relseaconnection = usi.InputEnded:Connect(function(Mousee)
 					if Mousee.UserInputType == Enum.UserInputType.MouseButton1 then
 						ValueNum = math.floor((((tonumber(max) - tonumber(min)) / Sliderframe.AbsoluteSize.X) * Sliderframe_2.AbsoluteSize.X) + tonumber(min))
+						TextLabel.Text = ValueNum
 						pcall(callback,ValueNum)
 						Sliderframe_2.Size = UDim2.new(0, math.clamp(mouse2.X - Sliderframe.AbsolutePosition.X,0,Sliderframe_2.AbsoluteSize.X),0,6)
 						moveconnection:Disconnect()
