@@ -221,8 +221,7 @@ function Hub.CreLib(namehub)
 				local Toggle = Instance.new("Frame")
 				local ToggleCorner = Instance.new("UICorner")
 				local NameToggle = Instance.new("TextLabel")
-				local ToggleButton = Instance.new("ImageButton")
-				local FrameTOglle = Instance.new("ImageLabel")
+				local ToggleButton = Instance.new("TextButton")
 				
 				Toggle.Name = "Toggle"
 				Toggle.Parent = Page2
@@ -248,33 +247,23 @@ function Hub.CreLib(namehub)
 				
 				ToggleButton.Name = "ToggleButton"
 				ToggleButton.Parent = Toggle
-				ToggleButton.BackgroundTransparency = 1.000
-				ToggleButton.Position = UDim2.new(0.886138618, 0, 0.148648649, 0)
-				ToggleButton.Size = UDim2.new(0, 25, 0, 25)
-				ToggleButton.ZIndex = 2
-				ToggleButton.Image = "rbxassetid://3926309567"
-				ToggleButton.ImageColor3 = Color3.fromRGB(205, 205, 205)
-				ToggleButton.ImageRectOffset = Vector2.new(628, 420)
-				ToggleButton.ImageRectSize = Vector2.new(48, 48)
-				
-				FrameTOglle.Name = "FrameTOglle"
-				FrameTOglle.Parent = ToggleButton
-				FrameTOglle.BackgroundTransparency = 1.000
-				FrameTOglle.Position = UDim2.new(-0.0199999996, 0, -0.0199999996, 0)
-				FrameTOglle.Size = UDim2.new(0, 25, 0, 25)
-				FrameTOglle.Image = "rbxassetid://3926309567"
-				FrameTOglle.ImageColor3 = Color3.fromRGB(205, 205, 205)
-				FrameTOglle.ImageRectOffset = Vector2.new(784, 420)
-				FrameTOglle.ImageRectSize = Vector2.new(48, 48)
-				FrameTOglle.Visible = false
+				ToggleButton.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
+				ToggleButton.BorderColor3 = Color3.fromRGB(205, 205, 205)
+				ToggleButton.BorderSizePixel = 2
+				ToggleButton.Position = UDim2.new(0.858085811, 0, 0.216216221, 0)
+				ToggleButton.Size = UDim2.new(0, 20, 0, 20)
+				ToggleButton.Font = Enum.Font.SourceSans
+				ToggleButton.Text = ""
+				ToggleButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+				ToggleButton.TextSize = 14.000
 				local Toggletool = false
 				ToggleButton.MouseButton1Click:Connect(function()
 				if Toggletool == false then
-				FrameTOglle.Visible = true
+				ToggleButton.BackgroundColor3 = Color3.fromRGB(250,250,250)
 				Toggletool = true
 				pcall(callback,Toggletool)
 				elseif Toggletool == true then
-				FrameTOglle.Visible = false
+				ToggleButton.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
 				Toggletool = false
 				pcall(callback,Toggletool)
 				end
