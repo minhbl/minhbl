@@ -27,10 +27,8 @@ function CircleClick(Button, X, Y)
 		end
 		local Time = 0.5
 		Circle:TweenSizeAndPosition(UDim2.new(0, Size, 0, Size), UDim2.new(0.5, - Size / 2, 0.5, -Size/2), "Out", "Quad", Time, false, nil)
-		for Index = 1, 10 do
-			Circle.ImageTransparency = Circle.ImageTransparency + 0.1
-			wait(Time / 10)
-		end
+		game:GetService("TweenService"):Create(Circle,TweenInfo.new(0.5),{ImageTransparency = 1})
+		wait(0.5)
 		Circle:Destroy()
 	end)
 end
