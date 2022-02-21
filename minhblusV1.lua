@@ -13,6 +13,7 @@ local Thanh_4 = Instance.new("Frame")
 local Thanh_5 = Instance.new("Frame")
 local UIListLayout = Instance.new("UIListLayout")
 local Page = Instance.new("Folder")
+local Tabs = {}
 
 local LibName = tostring(math.random(1, 100))..tostring(math.random(1,50))..tostring(math.random(1, 100))
 
@@ -90,13 +91,14 @@ Thanh_5.Size = UDim2.new(0, 316, 0, 2)
 
 Page.Name = "Page"
 Page.Parent = Main
-local Tabs = {}
+
 function Tabs.CreateTab(nametab)
 
 local TextButton = Instance.new("TextButton")
 local UICorner = Instance.new("UICorner")
 local Page_2 = Instance.new("ScrollingFrame")
 local UIListLayout_2 = Instance.new("UIListLayout")
+local Sections = {}
 
 Page_2.Name = "Page"
 Page_2.Parent = Page
@@ -138,7 +140,6 @@ TextButton.MouseButton1Click:Connect(function()
     TextButton.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
 end)
 
-local Sections = {}
 
 function Sections.CreateSec(namesec)
     local Section = Instance.new("Frame")
