@@ -1,5 +1,40 @@
 local Hub = {}
 
+local CircleTime = 0.5
+local Circle = Instance.new("ImageLabel")
+Circle.Name = "Circle"
+Circle.Parent = nil
+Circle.BackgroundTransparency = 1
+Circle.ZIndex = 10
+Circle.Image = "rbxassetid://266543268"
+Circle.ImageColor3 = Color3.fromRGB(21,157,96)
+
+function ClicksEffect(button, X, Y)
+	spawn(function()
+		button.ClipsDescedants = true
+		local Circ = Circle:Clone()
+		Circ.Parent = button
+		local newx = X - Circ.AbsolutePosition.X
+		local newy = Y - Circ.AbsolutePosition.Y
+		Circ.
+		Circle.Parent = UDim2.new(0,newx,0,newy)
+		local Size = 0 
+		if button.AbsoluteSize.X > button.AbsoluteSize.Y then
+			Size = button.AbsoluteSize.X * 1.5
+			elseif button.AbsoluteSize.X < button.AbsoluteSize.Y then
+			Size = button.AbsoluteSize.Y * 1.5
+		elseif button.AbsoluteSize.X == button.AbsoluteSize.Y then
+			Size = button.AbsoluteSize.X * 1.5
+		end
+		Circ:TweenSizeAndPosition(UDim2.new(0,Size,0,Size),UDim2.new(0.5,-Size / 2, 0,5,-Size / 2),"Out","Quad",CircleTime,false,nil)
+		for i = 1,10 do
+			Circle.ImageTransparency = Circle.ImageTransparency + 0.1
+			wait(CircleTime / 10)
+		end
+		Circ:Destroy()
+	end)
+end
+
 function Hub.CreLib(namehub)
 	local LibName = tostring(math.random(1, 100))..tostring(math.random(1,50))..tostring(math.random(1, 100))
 	local UI = Instance.new("ScreenGui")
@@ -178,7 +213,7 @@ function Hub.CreLib(namehub)
 			ClicksButtonCorner.Name = "ClicksButtonCorner"
 			ClicksButtonCorner.Parent = ClicksButton
             ClicksButton.MouseButton1Click:Connect(function()
-            CircleClick(ClicksButton, Mouse.X, Mouse.Y)
+            ClicksEffect(ClicksButton, Mouse.X, Mouse.Y)
             pcall(callback)    
             end)
         end
