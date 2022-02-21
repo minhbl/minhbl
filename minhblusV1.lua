@@ -8,6 +8,8 @@ Circle.BackgroundTransparency = 1
 Circle.ZIndex = 10
 Circle.Image = "rbxassetid://266543268"
 Circle.ImageColor3 = Color3.fromRGB(21,157,96)
+local plr = game.Players.LocalPlayer
+Mouse = plr:GetMouse()
 
 function ClicksEffect(button, X, Y)
 	spawn(function()
