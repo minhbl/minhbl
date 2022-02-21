@@ -409,7 +409,7 @@ function Hub.CreLib(namehub)
 						end
 					end)
 					end
-					Sliderbutton.MouseButton1Down:Connect(update)
+					Sliderbutton.MouseButton1Up:Connect(update)
 				end
 			end
         end  
