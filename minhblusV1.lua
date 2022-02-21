@@ -276,7 +276,6 @@ function Hub.CreLib(namehub)
 				FrameTOglle.Visible = false
 				Toggletool = false	
 				end
-				end	
 				end)
 			end 
         end  
