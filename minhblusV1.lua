@@ -17,7 +17,7 @@ local Page = Instance.new("Folder")
 local LibName = tostring(math.random(1, 100))..tostring(math.random(1,50))..tostring(math.random(1, 100))
 
 UI.Name = LibName
-UI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+UI.Parent = game:GetService("CoreGui")
 UI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Main.Name = "Main"
@@ -90,23 +90,26 @@ Thanh_5.Size = UDim2.new(0, 316, 0, 2)
 
 Page.Name = "Page"
 Page.Parent = Main
+local Tabs = {}
+function Tabs.CreateTab(nametab)
 
-function Hub.CreateTab(nametab)
-
-local UIListLayout_2 = Instance.new("UIListLayout")
-local Page_2 = Instance.new("Frame")
 local TextButton = Instance.new("TextButton")
 local UICorner = Instance.new("UICorner")
+local Page_2 = Instance.new("ScrollingFrame")
+local UIListLayout_2 = Instance.new("UIListLayout")
 
 Page_2.Name = "Page"
 Page_2.Parent = Page
+Page_2.Active = true
 Page_2.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
 Page_2.BorderSizePixel = 0
-Page_2.Position = UDim2.new(0.0653409064, 0, 0.239202663, 0)
+Page_2.Position = UDim2.new(0.0649999976, 0, 0.238999993, 0)
 Page_2.Size = UDim2.new(0, 303, 0, 198)
+Page_2.ScrollBarThickness = 0
 
-UIListLayout_2.Parent = Page_2
-UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.Parent = Page_2
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.Padding = UDim.new(0, 4)
 
 TextButton.Parent = TabFrame
 TextButton.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
@@ -134,6 +137,25 @@ TextButton.MouseButton1Click:Connect(function()
     Page_2.Visible = true
     TextButton.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
 end)
+
+local Sections = {}
+
+function Sections.CreateSec(namesec)
+    local Section = Instance.new("Frame")
+    local SectionCorner = Instance.new("UICorner")
+    
+    Section.Name = "Section"
+    Section.Parent = Page_2
+    Section.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
+    Section.Position = UDim2.new(0.00495049497, 0, 0, 0)
+    Section.Size = UDim2.new(0, 300, 0, 30)
+    
+    SectionCorner.CornerRadius = UDim.new(0, 4)
+    SectionCorner.Name = "SectionCorner"
+    SectionCorner.Parent = Section
+    end
+    return Sections
 end
+return Tabs
 end
 return Hub
