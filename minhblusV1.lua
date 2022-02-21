@@ -25,7 +25,7 @@ function CircleClick(Button, X, Y)
 		elseif Button.AbsoluteSize.X == Button.AbsoluteSize.Y then																																																																														print("This place uses a model by Come0n.") --please do not remove!
 			Size = Button.AbsoluteSize.X * 1.5
 		end
-		local Time = 0.5
+		local Time = 0.2
 		Circle:TweenSizeAndPosition(UDim2.new(0, Size, 0, Size), UDim2.new(0.5, - Size / 2, 0.5, -Size/2), "InOut", "Quint", Time, false, nil)
 		for Index = 1, 10 do
 			Circle.ImageTransparency = Circle.ImageTransparency + 0.01
