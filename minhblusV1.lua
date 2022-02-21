@@ -1,4 +1,5 @@
 local Hub = {}
+local Tabs = {}
 
 function Hub.CreateLib(name)
 local UI = Instance.new("ScreenGui")
@@ -13,7 +14,6 @@ local Thanh_4 = Instance.new("Frame")
 local Thanh_5 = Instance.new("Frame")
 local UIListLayout = Instance.new("UIListLayout")
 local Page = Instance.new("Folder")
-local Tabs = {}
 
 local LibName = tostring(math.random(1, 100))..tostring(math.random(1,50))..tostring(math.random(1, 100))
 
