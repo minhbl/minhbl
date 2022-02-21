@@ -141,8 +141,8 @@ function Hub.CreLib(namehub)
 				TabsButton.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
 			end   
 		end)
-
-		function Tabs.Btn(namebtn) 
+        local Items = {}
+		function Items.Btn(namebtn) 
 
 			local Button = Instance.new("Frame")
 			local ButtonCorner = Instance.new("UICorner")
@@ -178,6 +178,7 @@ function Hub.CreLib(namehub)
 			ClicksButtonCorner.Name = "ClicksButtonCorner"
 			ClicksButtonCorner.Parent = ClicksButton
 		end
+        return Items
 	end 
 	return Tabs
 end
