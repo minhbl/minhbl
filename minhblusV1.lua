@@ -92,6 +92,5 @@ Thanh_5.Size = UDim2.new(0, 316, 0, 2)
 
 Page.Name = "Page"
 Page.Parent = Main
-
 end
 return Hub
