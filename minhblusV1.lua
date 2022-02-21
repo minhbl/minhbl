@@ -22,7 +22,7 @@ function CircleClick(Button, X, Y)
 			Size = Button.AbsoluteSize.X * 1.5
 		elseif Button.AbsoluteSize.X < Button.AbsoluteSize.Y then
 			Size = Button.AbsoluteSize.Y * 1.5
-		elseif Button.AbsoluteSize.X == Button.AbsoluteSize.Y then																																																																														print("This place uses a model by Come0n.") --please do not remove!
+		elseif Button.AbsoluteSize.X == Button.AbsoluteSize.Y then
 			Size = Button.AbsoluteSize.X * 1.5
 		end
 		local Time = 0.5
@@ -217,7 +217,69 @@ function Hub.CreLib(namehub)
             CircleClick(ClicksButton, Mouse.X, Mouse.Y)
             pcall(callback)    
             end)
-        end
+			function Items.AddToggle(nametoggle,callback)
+				local Toggle = Instance.new("Frame")
+				local ToggleCorner = Instance.new("UICorner")
+				local NameToggle = Instance.new("TextLabel")
+				local ToggleButton = Instance.new("ImageButton")
+				local FrameTOglle = Instance.new("ImageLabel")
+				
+				Toggle.Name = "Toggle"
+				Toggle.Parent = game.StarterGui.UI.Main.Page
+				Toggle.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
+				Toggle.Size = UDim2.new(0, 303, 0, 37)
+				
+				ToggleCorner.CornerRadius = UDim.new(0, 4)
+				ToggleCorner.Name = "ToggleCorner"
+				ToggleCorner.Parent = Toggle
+				
+				NameToggle.Name = "NameToggle"
+				NameToggle.Parent = Toggle
+				NameToggle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				NameToggle.BackgroundTransparency = 1.000
+				NameToggle.BorderSizePixel = 0
+				NameToggle.Size = UDim2.new(0, 191, 0, 37)
+				NameToggle.Font = Enum.Font.SourceSans
+				NameToggle.Text = nametoggle
+				NameToggle.TextColor3 = Color3.fromRGB(205, 205, 205)
+				NameToggle.TextScaled = true
+				NameToggle.TextSize = 14.000
+				NameToggle.TextWrapped = true
+				
+				ToggleButton.Name = "ToggleButton"
+				ToggleButton.Parent = Toggle
+				ToggleButton.BackgroundTransparency = 1.000
+				ToggleButton.Position = UDim2.new(0.886138618, 0, 0.148648649, 0)
+				ToggleButton.Size = UDim2.new(0, 25, 0, 25)
+				ToggleButton.ZIndex = 2
+				ToggleButton.Image = "rbxassetid://3926309567"
+				ToggleButton.ImageColor3 = Color3.fromRGB(205, 205, 205)
+				ToggleButton.ImageRectOffset = Vector2.new(628, 420)
+				ToggleButton.ImageRectSize = Vector2.new(48, 48)
+				
+				FrameTOglle.Name = "FrameTOglle"
+				FrameTOglle.Parent = ToggleButton
+				FrameTOglle.BackgroundTransparency = 1.000
+				FrameTOglle.Position = UDim2.new(-0.0199999996, 0, -0.0199999996, 0)
+				FrameTOglle.Size = UDim2.new(0, 25, 0, 25)
+				FrameTOglle.Image = "rbxassetid://3926309567"
+				FrameTOglle.ImageColor3 = Color3.fromRGB(205, 205, 205)
+				FrameTOglle.ImageRectOffset = Vector2.new(784, 420)
+				FrameTOglle.ImageRectSize = Vector2.new(48, 48)
+				FrameTOglle.Visible = false
+				local Toggletool = false
+				ToggleButton.MouseButton1Click:Connect(function()
+				if Toggletool == false then
+				FrameTOglle.Visible = true
+				Toggletool = true
+				elseif Toggletool == true then
+				FrameTOglle.Visible = false
+				Toggletool = false	
+				end
+				end	
+				end)
+			end 
+        end  
         return Items
 	end 
 	return Tabs
