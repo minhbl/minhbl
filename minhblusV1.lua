@@ -137,9 +137,9 @@ for i,v in pairs(TabFrame:GetChildren) do
     if v.Name ~= "UIListLayout" then
     v.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
     end
+end
     Page2.Visible = true
-    v.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
-end   
+    TabsButton.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
 end)
 end 
 return Tabs
