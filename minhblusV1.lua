@@ -1,6 +1,6 @@
 local Hub = {}
 
-function Hub:CreateLib(name)
+function Hub:CreateLib(name,ver)
 local UI = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
 local MainCorner = Instance.new("UICorner")
@@ -114,7 +114,7 @@ TextButton.BorderSizePixel = 0
 TextButton.Position = UDim2.new(0.0549999997, 0, 0, 0)
 TextButton.Size = UDim2.new(0, 53, 0, 25)
 TextButton.Font = Enum.Font.SourceSans
-TextButton.Text = name
+TextButton.Text = nametab or "name"
 TextButton.TextColor3 = Color3.fromRGB(205, 205, 205)
 TextButton.TextScaled = true
 TextButton.TextSize = 14.000
