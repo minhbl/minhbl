@@ -98,7 +98,7 @@ local TabsButton = Instance.new("TextButton")
 local UICorner = Instance.new("UICorner")
 
 TabsButton.Name = "TabsButton"
-TabsButton.Parent = game.StarterGui.UI.Main.TabFrame
+TabsButton.Parent = TabFrame
 TabsButton.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
 TabsButton.BorderSizePixel = 0
 TabsButton.Position = UDim2.new(0.0549999997, 0, 0, 0)
