@@ -389,7 +389,8 @@ function Hub.CreLib(namehub)
             callback(Value)
         end)
         Sliderframe_2:TweenSize(UDim2.new(0, math.clamp(mouse.X - Sliderframe_2.AbsolutePosition.X, 0, 258), 0, 6), "InOut", "Linear", 0.05, true)
-        moveconnection = mouse.Move:Connect(function()
+		TextLabel.Visible = true
+		moveconnection = mouse.Move:Connect(function()
             TextLabel.Text = Value
 			TextLabel.Visible = true
             Value = math.floor((((tonumber(max) - tonumber(min)) / 258) * Sliderframe_2.AbsoluteSize.X) + tonumber(min))
