@@ -380,30 +380,33 @@ function Hub.CreLib(namehub)
 					TextLabel.TextSize = 14.000
 					TextLabel.TextWrapped = true
 
-					local ValueNum = 0
-
-					Sliderbutton.MouseButton1Down:Connect(function()
-					ValueNum = math.floor((((tonumber(max) - tonumber(min)) / Sliderframe.AbsoluteSize.X) * Sliderframe_2.AbsoluteSize.X) + tonumber(min)) or 0
-					TextLabel.Text = ValueNum
-					pcall(callback,ValueNum)
-					Sliderframe_2.Size = UDim2.new(0, math.clamp(Mouse.X - Sliderframe.AbsolutePosition.X,0,Sliderframe_2.AbsoluteSize.X),0,6)
-					moveconnection = Mouse.Move:Connect(function()
-					TextLabel.Text = ValueNum
-					ValueNum = math.floor((((tonumber(max) - tonumber(min)) / Sliderframe.AbsoluteSize.X) * Sliderframe_2.AbsoluteSize.X) + tonumber(min))
-					pcall(callback,ValueNum)
-					Sliderframe_2.Size = UDim2.new(0, math.clamp(Mouse.X - Sliderframe.AbsolutePosition.X,0,Sliderframe_2.AbsoluteSize.X),0,6)
-					end)
-					relseaconnection = UIS.InputEnded:Connect(function(Mousee)
-					if Mousee.UserInputType == Enum.UserInputType.MouseButton1 then
-						ValueNum = math.floor((((tonumber(max) - tonumber(min)) / Sliderframe.AbsoluteSize.X) * Sliderframe_2.AbsoluteSize.X) + tonumber(min))
-						TextLabel.Text = ValueNum
-						pcall(callback,ValueNum)
-						Sliderframe_2.Size = UDim2.new(0, math.clamp(Mouse.X - Sliderframe.AbsolutePosition.X,0,Sliderframe_2.AbsoluteSize.X),0,6)
-						moveconnection:Disconnect()
-						relseaconnection:Disconnect()
-						    end
-					    end)
-					end)
+					local Value
+                    Sliderbutton.MouseButton1Down:Connect(function()
+						local mouse = game.Players.LocalPlayer:
+                Value = math.floor((((tonumber(max) - tonumber(min)) / 258) * Sliderframe_2.AbsoluteSize.X) + tonumber(min)) or 0
+        pcall(function()
+            callback(Value)
+        end)
+        Sliderframe_2:TweenSize(UDim2.new(0, math.clamp(mouse.X - Sliderframe_2.AbsolutePosition.X, 0, 258), 0, 6), "InOut", "Linear", 0.05, true)
+        moveconnection = mouse.Move:Connect(function()
+            TextLabel.Text = Value
+            Value = math.floor((((tonumber(max) - tonumber(min)) / 258) * Sliderframe_2.AbsoluteSize.X) + tonumber(min))
+            pcall(function()
+                callback(Value)
+            end)
+            Sliderframe_2:TweenSize(UDim2.new(0, math.clamp(mouse.X - Sliderframe_2.AbsolutePosition.X, 0, 258), 0, 6), "InOut", "Linear", 0.05, true)
+        end)
+        releaseconnection = UIS.InputEnded:Connect(function(Mousee)
+            if Mousee.UserInputType == Enum.UserInputType.MouseButton1 then
+                Value = math.floor((((tonumber(max) - tonumber(min)) / 258) * Sliderframe_2.AbsoluteSize.X) + tonumber(min))
+                pcall(function()
+                    callback(Value)
+                end)
+                TextLabel.Text = Value
+                Sliderframe_2:TweenSize(UDim2.new(0, math.clamp(mouse.X - slidSliderframe_2erDrag.AbsolutePosition.X, 0, 258), 0, 6), "InOut", "Linear", 0.05, true)
+                moveconnection:Disconnect()
+                releaseconnection:Disconnect()
+        end)
 				end
 			end
         end  
