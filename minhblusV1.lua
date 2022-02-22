@@ -37,7 +37,7 @@ end
 
 function Hub.CreLib(namehub)
 	local LibName = tostring(math.random(1, 100))..tostring(math.random(1,50))..tostring(math.random(1, 100))
-	if game.CoreGui:FindFirstChild(LibName) then
+	if game.CoreGui:FindFirstChild(LibName) ~= nil then
 	game.CoreGui:FindFirstChild(LibName):Destroy
 	end
 	local UI = Instance.new("ScreenGui")
