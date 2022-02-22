@@ -138,10 +138,8 @@ function Hub.CreLib(namehub)
 
         local function UpdateSize()
             local cS = UIListLayout2.AbsoluteContentSize
-
-            game.TweenService:Create(Page2, TweenInfo.new(0.15, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
-                CanvasSize = UDim2.new(0,cS.X,0,cS.Y)
-            }):Play()
+           local Tween = game.TweenService:Create(Page2, TweenInfo.new(0.15, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {CanvasSize = UDim2.new(0,cS.X,0,cS.Y)})
+			Tween:Play()
         end
 
 		TabsButton.Name = "TabsButton"
