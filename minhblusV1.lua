@@ -379,14 +379,16 @@ function Hub.CreLib(namehub)
 					TextLabel.TextScaled = true
 					TextLabel.TextSize = 14.000
 					TextLabel.TextWrapped = true
+					TextLabel.Visible = false
 
 					local Value = 0
                     Sliderbutton.MouseButton1Down:Connect(function()
 						local mouse = game.Players.LocalPlayer:GetMouse()
                 Value = math.floor((((tonumber(max) - tonumber(min)) / 258) * Sliderframe_2.AbsoluteSize.X) + tonumber(min)) or 0
-        pcall(function()
+				pcall(function()
             callback(Value)
         end)
+		TextLabel.Visible = true
         Sliderframe_2:TweenSize(UDim2.new(0, math.clamp(mouse.X - Sliderframe_2.AbsolutePosition.X, 0, 258), 0, 6), "InOut", "Linear", 0.05, true)
         moveconnection = mouse.Move:Connect(function()
             TextLabel.Text = Value
@@ -394,6 +396,7 @@ function Hub.CreLib(namehub)
             pcall(function()
                 callback(Value)
             end)
+			TextLabel.Visible = true
             Sliderframe_2:TweenSize(UDim2.new(0, math.clamp(mouse.X - Sliderframe_2.AbsolutePosition.X, 0, 258), 0, 6), "InOut", "Linear", 0.05, true)
         end)
         releaseconnection = UIS.InputEnded:Connect(function(Mousee)
@@ -403,9 +406,11 @@ function Hub.CreLib(namehub)
                     callback(Value)
                 end)
                 TextLabel.Text = Value
+				TextLabel.Visible = true
                 Sliderframe_2:TweenSize(UDim2.new(0, math.clamp(mouse.X - Sliderframe_2.AbsolutePosition.X, 0, 258), 0, 6), "InOut", "Linear", 0.05, true)
                 moveconnection:Disconnect()
                 releaseconnection:Disconnect()
+				TextLabel.Visible = false
 			end
         end)
 	end)
