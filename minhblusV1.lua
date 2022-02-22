@@ -380,7 +380,7 @@ function Hub.CreLib(namehub)
 					TextLabel.TextSize = 14.000
 					TextLabel.TextWrapped = true
 
-					local Value
+					local Value = 0
                     Sliderbutton.MouseButton1Down:Connect(function()
 						local mouse = game.Players.LocalPlayer:
                 Value = math.floor((((tonumber(max) - tonumber(min)) / 258) * Sliderframe_2.AbsoluteSize.X) + tonumber(min)) or 0
