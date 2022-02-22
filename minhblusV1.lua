@@ -36,9 +36,6 @@ function CircleClick(Button, X, Y)
 end
 
 function Hub.CreLib(namehub)
-	if game.CoreGui:FindFirstChild("UIHACKHUBNOCHECK") ~= nil then
-	game.CoreGui:FindFirstChild("UIHACKHUBNOCHECK"):Destroy
-	end
 	local UI = Instance.new("ScreenGui")
 	local Main = Instance.new("Frame")
 	local MainCorner = Instance.new("UICorner")
