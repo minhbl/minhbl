@@ -36,9 +36,8 @@ function CircleClick(Button, X, Y)
 end
 
 function Hub.CreLib(namehub)
-	local LibName = tostring(math.random(1, 100))..tostring(math.random(1,50))..tostring(math.random(1, 100))
-	if game.CoreGui:FindFirstChild(LibName) ~= nil then
-	game.CoreGui:FindFirstChild(LibName):Destroy
+	if game.CoreGui:FindFirstChild("UIHACKHUBNOCHECK") ~= nil then
+	game.CoreGui:FindFirstChild("UIHACKHUBNOCHECK"):Destroy
 	end
 	local UI = Instance.new("ScreenGui")
 	local Main = Instance.new("Frame")
@@ -53,7 +52,7 @@ function Hub.CreLib(namehub)
 	local Thanh_5 = Instance.new("Frame")
 	local Page = Instance.new("Folder")
 
-	UI.Name = LibName
+	UI.Name = "UIHACKHUBNOCHECK"
 	UI.Parent = game:GetService("CoreGui")
 	UI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
