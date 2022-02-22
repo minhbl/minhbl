@@ -217,6 +217,7 @@ function Hub.CreLib(namehub)
             CircleClick(ClicksButton, Mouse.X, Mouse.Y)
             pcall(callback)    
             end)
+		end
 			function Items.AddToggle(nametoggle,callback)
 				local Toggle = Instance.new("Frame")
 				local ToggleCorner = Instance.new("UICorner")
@@ -268,6 +269,7 @@ function Hub.CreLib(namehub)
 				pcall(callback,Toggletool)
 				end
 				end)
+			end
 				function Items.AddSlider(namesliderr,min,max,callback)
 					local Slider = Instance.new("Frame")
 					local SliderCorner = Instance.new("UICorner")
@@ -411,11 +413,9 @@ function Hub.CreLib(namehub)
                 moveconnection:Disconnect()
                 releaseconnection:Disconnect()
 				TextLabel.Visible = false
-			end
-        end)
-	end)
-				end
-			end
+			        end
+               end)
+	       end)
         end  
         return Items
 	end 
