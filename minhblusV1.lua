@@ -403,7 +403,7 @@ function Hub.CreLib(namehub)
                     callback(Value)
                 end)
                 TextLabel.Text = Value
-                Sliderframe_2:TweenSize(UDim2.new(0, math.clamp(mouse.X - slidSliderframe_2erDrag.AbsolutePosition.X, 0, 258), 0, 6), "InOut", "Linear", 0.05, true)
+                Sliderframe_2:TweenSize(UDim2.new(0, math.clamp(mouse.X - slidSliderframe_2.AbsolutePosition.X, 0, 258), 0, 6), "InOut", "Linear", 0.05, true)
                 moveconnection:Disconnect()
                 releaseconnection:Disconnect()
 			end
