@@ -36,6 +36,9 @@ function CircleClick(Button, X, Y)
 end
 
 function Hub.CreLib(namehub)
+	if game.CoreGui:FindFirstChild("UIHACKHUBNOCHECK") ~= nil then
+	game.CoreGui:FindFirstChild("UIHACKHUBNOCHECK"):Destroy
+	end
 	local UI = Instance.new("ScreenGui")
 	local Main = Instance.new("Frame")
 	local MainCorner = Instance.new("UICorner")
@@ -133,6 +136,14 @@ function Hub.CreLib(namehub)
 		local Page2 = Instance.new("ScrollingFrame")
 		local UIListLayout2 = Instance.new("UIListLayout")
 
+        local function UpdateSize()
+            local cS = UIListLayout2.AbsoluteContentSize
+
+            game.TweenService:Create(Page2, TweenInfo.new(0.15, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
+                CanvasSize = UDim2.new(0,cS.X,0,cS.Y)
+            }):Play()
+        end
+
 		TabsButton.Name = "TabsButton"
 		TabsButton.Parent = TabFrame
 		TabsButton.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
@@ -162,6 +173,9 @@ function Hub.CreLib(namehub)
 		UIListLayout2.HorizontalAlignment = Enum.HorizontalAlignment.Center
 		UIListLayout2.SortOrder = Enum.SortOrder.LayoutOrder
 		UIListLayout2.Padding = UDim.new(0, 4)
+
+		Page2.ChildAdded:Connect(UpdateSize)
+		Page2.ChildRemoved:Connect(UpdateSize)
 
 		TabsButton.MouseButton1Click:Connect(function()
 			for i,v in pairs(Page:GetChildren()) do
@@ -211,6 +225,7 @@ function Hub.CreLib(namehub)
 			ClicksButtonCorner.CornerRadius = UDim.new(0, 4)
 			ClicksButtonCorner.Name = "ClicksButtonCorner"
 			ClicksButtonCorner.Parent = ClicksButton
+			UpdateSize()
             ClicksButton.MouseButton1Click:Connect(function()
 			local Mouse = game.Players.LocalPlayer:GetMouse()
             CircleClick(ClicksButton, Mouse.X, Mouse.Y)
@@ -256,6 +271,7 @@ function Hub.CreLib(namehub)
 				ToggleButton.Text = ""
 				ToggleButton.TextColor3 = Color3.fromRGB(0, 0, 0)
 				ToggleButton.TextSize = 14.000
+				UpdateSize()
 				local Toggletool = false
 				ToggleButton.MouseButton1Click:Connect(function()
 				if Toggletool == false then
@@ -381,7 +397,7 @@ function Hub.CreLib(namehub)
 					TextLabel.TextSize = 14.000
 					TextLabel.TextWrapped = true
 					TextLabel.Visible = false
-
+					UpdateSize()
 					local Value = 0
                     Sliderbutton.MouseButton1Down:Connect(function()
 						local mouse = game.Players.LocalPlayer:GetMouse()
