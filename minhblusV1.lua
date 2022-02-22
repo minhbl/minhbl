@@ -406,7 +406,9 @@ function Hub.CreLib(namehub)
                 Sliderframe_2:TweenSize(UDim2.new(0, math.clamp(mouse.X - slidSliderframe_2erDrag.AbsolutePosition.X, 0, 258), 0, 6), "InOut", "Linear", 0.05, true)
                 moveconnection:Disconnect()
                 releaseconnection:Disconnect()
+			end
         end)
+	end)
 				end
 			end
         end  
