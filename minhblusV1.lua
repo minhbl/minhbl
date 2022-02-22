@@ -1,6 +1,5 @@
 local Hub = {}
 local UIS = game:GetService("UserInputService")
-local Mouse = game.Players.LocalPlayer:GetMouse()
 local Circle2 = Instance.new("ImageLabel")
 Circle2.Name = "Circle2"
 Circle2.Parent = nil
@@ -214,6 +213,7 @@ function Hub.CreLib(namehub)
 			ClicksButtonCorner.Name = "ClicksButtonCorner"
 			ClicksButtonCorner.Parent = ClicksButton
             ClicksButton.MouseButton1Click:Connect(function()
+			local Mouse = game.Players.LocalPlayer:GetMouse()
             CircleClick(ClicksButton, Mouse.X, Mouse.Y)
             pcall(callback)    
             end)
@@ -382,7 +382,7 @@ function Hub.CreLib(namehub)
 
 					local Value = 0
                     Sliderbutton.MouseButton1Down:Connect(function()
-						local mouse = game.Players.LocalPlayer:
+						local mouse = game.Players.LocalPlayer:GetMouse()
                 Value = math.floor((((tonumber(max) - tonumber(min)) / 258) * Sliderframe_2.AbsoluteSize.X) + tonumber(min)) or 0
         pcall(function()
             callback(Value)
