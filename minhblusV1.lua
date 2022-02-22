@@ -28,8 +28,8 @@ function CircleClick(Button, X, Y)
 		local Time = 0.5
 		Circle:TweenSizeAndPosition(UDim2.new(0, Size, 0, Size), UDim2.new(0.5, - Size / 2, 0.5, -Size/2), "Out", "Quad", Time, false, nil)
 		for i = 1,10 do
-		Circle.ImageTransparency += 0.1
-		wait()
+			Circle.ImageTransparency += 0.1
+			wait()
 		end
 		Circle:Destroy()
 	end)
@@ -37,7 +37,7 @@ end
 
 function Hub.CreLib(namehub)
 	if game.CoreGui:FindFirstChild("UIHACKHUBNOCHECK") ~= nil then
-	game.CoreGui:FindFirstChild("UIHACKHUBNOCHECK"):Destroy
+		game.CoreGui:FindFirstChild("UIHACKHUBNOCHECK"):Destroy()
 	end
 	local UI = Instance.new("ScreenGui")
 	local Main = Instance.new("Frame")
@@ -136,11 +136,11 @@ function Hub.CreLib(namehub)
 		local Page2 = Instance.new("ScrollingFrame")
 		local UIListLayout2 = Instance.new("UIListLayout")
 
-        local function UpdateSize()
-            local cS = UIListLayout2.AbsoluteContentSize
-           local Tween = game.TweenService:Create(Page2, TweenInfo.new(0.15, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {CanvasSize = UDim2.new(0,cS.X,0,cS.Y)})
+		local function UpdateSize()
+			local cS = UIListLayout2.AbsoluteContentSize
+			local Tween = game.TweenService:Create(Page2, TweenInfo.new(0.15, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {CanvasSize = UDim2.new(0,cS.X,0,cS.Y)})
 			Tween:Play()
-        end
+		end
 
 		TabsButton.Name = "TabsButton"
 		TabsButton.Parent = TabFrame
@@ -187,7 +187,7 @@ function Hub.CreLib(namehub)
 				TabsButton.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
 			end   
 		end)
-        local Items = {}
+		local Items = {}
 		function Items.Btn(namebtn,callback) 
 
 			local Button = Instance.new("Frame")
@@ -224,213 +224,213 @@ function Hub.CreLib(namehub)
 			ClicksButtonCorner.Name = "ClicksButtonCorner"
 			ClicksButtonCorner.Parent = ClicksButton
 			UpdateSize()
-            ClicksButton.MouseButton1Click:Connect(function()
-			local Mouse = game.Players.LocalPlayer:GetMouse()
-            CircleClick(ClicksButton, Mouse.X, Mouse.Y)
-            pcall(callback)    
-            end)
+			ClicksButton.MouseButton1Click:Connect(function()
+				local Mouse = game.Players.LocalPlayer:GetMouse()
+				CircleClick(ClicksButton, Mouse.X, Mouse.Y)
+				pcall(callback)    
+			end)
 		end
-			function Items.AddToggle(nametoggle,callback)
-				local Toggle = Instance.new("Frame")
-				local ToggleCorner = Instance.new("UICorner")
-				local NameToggle = Instance.new("TextLabel")
-				local ToggleButton = Instance.new("TextButton")
-				
-				Toggle.Name = "Toggle"
-				Toggle.Parent = Page2
-				Toggle.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
-				Toggle.Size = UDim2.new(0, 303, 0, 37)
-				
-				ToggleCorner.CornerRadius = UDim.new(0, 4)
-				ToggleCorner.Name = "ToggleCorner"
-				ToggleCorner.Parent = Toggle
-				
-				NameToggle.Name = "NameToggle"
-				NameToggle.Parent = Toggle
-				NameToggle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				NameToggle.BackgroundTransparency = 1.000
-				NameToggle.BorderSizePixel = 0
-				NameToggle.Size = UDim2.new(0, 191, 0, 37)
-				NameToggle.Font = Enum.Font.SourceSans
-				NameToggle.Text = nametoggle
-				NameToggle.TextColor3 = Color3.fromRGB(205, 205, 205)
-				NameToggle.TextScaled = true
-				NameToggle.TextSize = 14.000
-				NameToggle.TextWrapped = true
-				
-				ToggleButton.Name = "ToggleButton"
-				ToggleButton.Parent = Toggle
-				ToggleButton.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
-				ToggleButton.BorderColor3 = Color3.fromRGB(205, 205, 205)
-				ToggleButton.BorderSizePixel = 2
-				ToggleButton.Position = UDim2.new(0.858085811, 0, 0.216216221, 0)
-				ToggleButton.Size = UDim2.new(0, 20, 0, 20)
-				ToggleButton.Font = Enum.Font.SourceSans
-				ToggleButton.Text = ""
-				ToggleButton.TextColor3 = Color3.fromRGB(0, 0, 0)
-				ToggleButton.TextSize = 14.000
-				UpdateSize()
-				local Toggletool = false
-				ToggleButton.MouseButton1Click:Connect(function()
+		function Items.AddToggle(nametoggle,callback)
+			local Toggle = Instance.new("Frame")
+			local ToggleCorner = Instance.new("UICorner")
+			local NameToggle = Instance.new("TextLabel")
+			local ToggleButton = Instance.new("TextButton")
+
+			Toggle.Name = "Toggle"
+			Toggle.Parent = Page2
+			Toggle.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
+			Toggle.Size = UDim2.new(0, 303, 0, 37)
+
+			ToggleCorner.CornerRadius = UDim.new(0, 4)
+			ToggleCorner.Name = "ToggleCorner"
+			ToggleCorner.Parent = Toggle
+
+			NameToggle.Name = "NameToggle"
+			NameToggle.Parent = Toggle
+			NameToggle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			NameToggle.BackgroundTransparency = 1.000
+			NameToggle.BorderSizePixel = 0
+			NameToggle.Size = UDim2.new(0, 191, 0, 37)
+			NameToggle.Font = Enum.Font.SourceSans
+			NameToggle.Text = nametoggle
+			NameToggle.TextColor3 = Color3.fromRGB(205, 205, 205)
+			NameToggle.TextScaled = true
+			NameToggle.TextSize = 14.000
+			NameToggle.TextWrapped = true
+
+			ToggleButton.Name = "ToggleButton"
+			ToggleButton.Parent = Toggle
+			ToggleButton.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
+			ToggleButton.BorderColor3 = Color3.fromRGB(205, 205, 205)
+			ToggleButton.BorderSizePixel = 2
+			ToggleButton.Position = UDim2.new(0.858085811, 0, 0.216216221, 0)
+			ToggleButton.Size = UDim2.new(0, 20, 0, 20)
+			ToggleButton.Font = Enum.Font.SourceSans
+			ToggleButton.Text = ""
+			ToggleButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+			ToggleButton.TextSize = 14.000
+			UpdateSize()
+			local Toggletool = false
+			ToggleButton.MouseButton1Click:Connect(function()
 				if Toggletool == false then
-				ToggleButton.BackgroundColor3 = Color3.fromRGB(250,250,250)
-				Toggletool = true
-				pcall(callback,Toggletool)
+					ToggleButton.BackgroundColor3 = Color3.fromRGB(250,250,250)
+					Toggletool = true
+					pcall(callback,Toggletool)
 				elseif Toggletool == true then
-				ToggleButton.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
-				Toggletool = false
-				pcall(callback,Toggletool)
+					ToggleButton.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
+					Toggletool = false
+					pcall(callback,Toggletool)
 				end
-				end)
-			end
-				function Items.AddSlider(namesliderr,min,max,callback)
-					local Slider = Instance.new("Frame")
-					local SliderCorner = Instance.new("UICorner")
-					local Sliderframe = Instance.new("Frame")
-					local SliderCorner_2 = Instance.new("UICorner")
-					local Sliderbutton = Instance.new("TextButton")
-					local SliderCorner_3 = Instance.new("UICorner")
-					local Sliderframe_2 = Instance.new("Frame")
-					local SliderCorner_4 = Instance.new("UICorner")
-					local NameSlider = Instance.new("TextLabel")
-					local Min = Instance.new("TextLabel")
-					local Max = Instance.new("TextLabel")
-					local TextLabel = Instance.new("TextLabel")
-					
-					Slider.Name = "Slider"
-					Slider.Parent = Page2
-					Slider.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
-					Slider.Position = UDim2.new(0, 0, 0.00664451811, 0)
-					Slider.Size = UDim2.new(0, 303, 0, 37)
-					
-					SliderCorner.CornerRadius = UDim.new(0, 4)
-					SliderCorner.Name = "SliderCorner"
-					SliderCorner.Parent = Slider
-					
-					Sliderframe.Name = "Sliderframe"
-					Sliderframe.Parent = Slider
-					Sliderframe.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
-					Sliderframe.Position = UDim2.new(0.0726072639, 0, 0.621621609, 0)
-					Sliderframe.Size = UDim2.new(0, 258, 0, 6)
-					
-					SliderCorner_2.CornerRadius = UDim.new(0, 4)
-					SliderCorner_2.Name = "SliderCorner"
-					SliderCorner_2.Parent = Sliderframe
-					
-					Sliderbutton.Name = "Sliderbutton"
-					Sliderbutton.Parent = Sliderframe
-					Sliderbutton.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
-					Sliderbutton.BackgroundTransparency = 1.000
-					Sliderbutton.Size = UDim2.new(0, 258, 0, 6)
-					Sliderbutton.Font = Enum.Font.SourceSans
-					Sliderbutton.Text = ""
-					Sliderbutton.TextColor3 = Color3.fromRGB(0, 0, 0)
-					Sliderbutton.TextSize = 14.000
-					
-					SliderCorner_3.CornerRadius = UDim.new(0, 4)
-					SliderCorner_3.Name = "SliderCorner"
-					SliderCorner_3.Parent = Sliderbutton
-					
-					Sliderframe_2.Name = "Sliderframe"
-					Sliderframe_2.Parent = Sliderframe
-					Sliderframe_2.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
-					Sliderframe_2.Size = UDim2.new(0, 191, 0, 6)
-					
-					SliderCorner_4.CornerRadius = UDim.new(0, 4)
-					SliderCorner_4.Name = "SliderCorner"
-					SliderCorner_4.Parent = Sliderframe_2
-					
-					NameSlider.Name = "NameSlider"
-					NameSlider.Parent = Slider
-					NameSlider.BackgroundColor3 = Color3.fromRGB(205, 205, 205)
-					NameSlider.BackgroundTransparency = 1.000
-					NameSlider.BorderSizePixel = 0
-					NameSlider.Position = UDim2.new(0.178217828, 0, 0, 0)
-					NameSlider.Size = UDim2.new(0, 200, 0, 23)
-					NameSlider.Font = Enum.Font.SourceSans
-					NameSlider.Text = namesliderr
-					NameSlider.TextColor3 = Color3.fromRGB(255, 255, 255)
-					NameSlider.TextScaled = true
-					NameSlider.TextSize = 14.000
-					NameSlider.TextWrapped = true
-					
-					Min.Name = "Min"
-					Min.Parent = Slider
-					Min.BackgroundColor3 = Color3.fromRGB(205, 205, 205)
-					Min.BackgroundTransparency = 1.000
-					Min.BorderSizePixel = 0
-					Min.Position = UDim2.new(0.0165016502, 0, 0, 0)
-					Min.Size = UDim2.new(0, 30, 0, 23)
-					Min.Font = Enum.Font.SourceSans
-					Min.Text = tostring(min)
-					Min.TextColor3 = Color3.fromRGB(255, 255, 255)
-					Min.TextScaled = true
-					Min.TextSize = 14.000
-					Min.TextWrapped = true
-					
-					Max.Name = "Max"
-					Max.Parent = Slider
-					Max.BackgroundColor3 = Color3.fromRGB(205, 205, 205)
-					Max.BackgroundTransparency = 1.000
-					Max.BorderSizePixel = 0
-					Max.Position = UDim2.new(0.881188095, 0, 0, 0)
-					Max.Size = UDim2.new(0, 30, 0, 23)
-					Max.Font = Enum.Font.SourceSans
-					Max.Text = tostring(max)
-					Max.TextColor3 = Color3.fromRGB(255, 255, 255)
-					Max.TextScaled = true
-					Max.TextSize = 14.000
-					Max.TextWrapped = true
-					
-					TextLabel.Parent = Sliderframe_2
-					TextLabel.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
-					TextLabel.BackgroundTransparency = 1.000
-					TextLabel.BorderSizePixel = 0
-					TextLabel.Position = UDim2.new(0.928035378, 0, -3.66666651, 0)
-					TextLabel.Size = UDim2.new(0, 30, 0, 22)
-					TextLabel.Font = Enum.Font.SourceSans
-					TextLabel.Text = tostring(min)
-					TextLabel.TextColor3 = Color3.fromRGB(0, 255, 255)
-					TextLabel.TextScaled = true
-					TextLabel.TextSize = 14.000
-					TextLabel.TextWrapped = true
-					TextLabel.Visible = false
-					UpdateSize()
-					local Value = 0
-                    Sliderbutton.MouseButton1Down:Connect(function()
-						local mouse = game.Players.LocalPlayer:GetMouse()
-                Value = math.floor((((tonumber(max) - tonumber(min)) / 258) * Sliderframe_2.AbsoluteSize.X) + tonumber(min)) or 0
+			end)
+		end
+		function Items.AddSlider(namesliderr,min,max,callback)
+			local Slider = Instance.new("Frame")
+			local SliderCorner = Instance.new("UICorner")
+			local Sliderframe = Instance.new("Frame")
+			local SliderCorner_2 = Instance.new("UICorner")
+			local Sliderbutton = Instance.new("TextButton")
+			local SliderCorner_3 = Instance.new("UICorner")
+			local Sliderframe_2 = Instance.new("Frame")
+			local SliderCorner_4 = Instance.new("UICorner")
+			local NameSlider = Instance.new("TextLabel")
+			local Min = Instance.new("TextLabel")
+			local Max = Instance.new("TextLabel")
+			local TextLabel = Instance.new("TextLabel")
+
+			Slider.Name = "Slider"
+			Slider.Parent = Page2
+			Slider.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
+			Slider.Position = UDim2.new(0, 0, 0.00664451811, 0)
+			Slider.Size = UDim2.new(0, 303, 0, 37)
+
+			SliderCorner.CornerRadius = UDim.new(0, 4)
+			SliderCorner.Name = "SliderCorner"
+			SliderCorner.Parent = Slider
+
+			Sliderframe.Name = "Sliderframe"
+			Sliderframe.Parent = Slider
+			Sliderframe.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
+			Sliderframe.Position = UDim2.new(0.0726072639, 0, 0.621621609, 0)
+			Sliderframe.Size = UDim2.new(0, 258, 0, 6)
+
+			SliderCorner_2.CornerRadius = UDim.new(0, 4)
+			SliderCorner_2.Name = "SliderCorner"
+			SliderCorner_2.Parent = Sliderframe
+
+			Sliderbutton.Name = "Sliderbutton"
+			Sliderbutton.Parent = Sliderframe
+			Sliderbutton.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+			Sliderbutton.BackgroundTransparency = 1.000
+			Sliderbutton.Size = UDim2.new(0, 258, 0, 6)
+			Sliderbutton.Font = Enum.Font.SourceSans
+			Sliderbutton.Text = ""
+			Sliderbutton.TextColor3 = Color3.fromRGB(0, 0, 0)
+			Sliderbutton.TextSize = 14.000
+
+			SliderCorner_3.CornerRadius = UDim.new(0, 4)
+			SliderCorner_3.Name = "SliderCorner"
+			SliderCorner_3.Parent = Sliderbutton
+
+			Sliderframe_2.Name = "Sliderframe"
+			Sliderframe_2.Parent = Sliderframe
+			Sliderframe_2.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+			Sliderframe_2.Size = UDim2.new(0, 191, 0, 6)
+
+			SliderCorner_4.CornerRadius = UDim.new(0, 4)
+			SliderCorner_4.Name = "SliderCorner"
+			SliderCorner_4.Parent = Sliderframe_2
+
+			NameSlider.Name = "NameSlider"
+			NameSlider.Parent = Slider
+			NameSlider.BackgroundColor3 = Color3.fromRGB(205, 205, 205)
+			NameSlider.BackgroundTransparency = 1.000
+			NameSlider.BorderSizePixel = 0
+			NameSlider.Position = UDim2.new(0.178217828, 0, 0, 0)
+			NameSlider.Size = UDim2.new(0, 200, 0, 23)
+			NameSlider.Font = Enum.Font.SourceSans
+			NameSlider.Text = namesliderr
+			NameSlider.TextColor3 = Color3.fromRGB(255, 255, 255)
+			NameSlider.TextScaled = true
+			NameSlider.TextSize = 14.000
+			NameSlider.TextWrapped = true
+
+			Min.Name = "Min"
+			Min.Parent = Slider
+			Min.BackgroundColor3 = Color3.fromRGB(205, 205, 205)
+			Min.BackgroundTransparency = 1.000
+			Min.BorderSizePixel = 0
+			Min.Position = UDim2.new(0.0165016502, 0, 0, 0)
+			Min.Size = UDim2.new(0, 30, 0, 23)
+			Min.Font = Enum.Font.SourceSans
+			Min.Text = tostring(min)
+			Min.TextColor3 = Color3.fromRGB(255, 255, 255)
+			Min.TextScaled = true
+			Min.TextSize = 14.000
+			Min.TextWrapped = true
+
+			Max.Name = "Max"
+			Max.Parent = Slider
+			Max.BackgroundColor3 = Color3.fromRGB(205, 205, 205)
+			Max.BackgroundTransparency = 1.000
+			Max.BorderSizePixel = 0
+			Max.Position = UDim2.new(0.881188095, 0, 0, 0)
+			Max.Size = UDim2.new(0, 30, 0, 23)
+			Max.Font = Enum.Font.SourceSans
+			Max.Text = tostring(max)
+			Max.TextColor3 = Color3.fromRGB(255, 255, 255)
+			Max.TextScaled = true
+			Max.TextSize = 14.000
+			Max.TextWrapped = true
+
+			TextLabel.Parent = Sliderframe_2
+			TextLabel.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
+			TextLabel.BackgroundTransparency = 1.000
+			TextLabel.BorderSizePixel = 0
+			TextLabel.Position = UDim2.new(0.928035378, 0, -3.66666651, 0)
+			TextLabel.Size = UDim2.new(0, 30, 0, 22)
+			TextLabel.Font = Enum.Font.SourceSans
+			TextLabel.Text = tostring(min)
+			TextLabel.TextColor3 = Color3.fromRGB(0, 255, 255)
+			TextLabel.TextScaled = true
+			TextLabel.TextSize = 14.000
+			TextLabel.TextWrapped = true
+			TextLabel.Visible = false
+			UpdateSize()
+			local Value = 0
+			Sliderbutton.MouseButton1Down:Connect(function()
+				local mouse = game.Players.LocalPlayer:GetMouse()
+				Value = math.floor((((tonumber(max) - tonumber(min)) / 258) * Sliderframe_2.AbsoluteSize.X) + tonumber(min)) or 0
 				pcall(function()
-            callback(Value)
-        end)
-        Sliderframe_2:TweenSize(UDim2.new(0, math.clamp(mouse.X - Sliderframe_2.AbsolutePosition.X, 0, 258), 0, 6), "InOut", "Linear", 0.05, true)
-		TextLabel.Visible = true
-		moveconnection = mouse.Move:Connect(function()
-            TextLabel.Text = Value
-			TextLabel.Visible = true
-            Value = math.floor((((tonumber(max) - tonumber(min)) / 258) * Sliderframe_2.AbsoluteSize.X) + tonumber(min))
-            pcall(function()
-                callback(Value)
-            end)
-            Sliderframe_2:TweenSize(UDim2.new(0, math.clamp(mouse.X - Sliderframe_2.AbsolutePosition.X, 0, 258), 0, 6), "InOut", "Linear", 0.05, true)
-        end)
-        releaseconnection = UIS.InputEnded:Connect(function(Mousee)
-            if Mousee.UserInputType == Enum.UserInputType.MouseButton1 then
-                Value = math.floor((((tonumber(max) - tonumber(min)) / 258) * Sliderframe_2.AbsoluteSize.X) + tonumber(min))
-                pcall(function()
-                    callback(Value)
-                end)
-                TextLabel.Text = Value
+					callback(Value)
+				end)
+				Sliderframe_2:TweenSize(UDim2.new(0, math.clamp(mouse.X - Sliderframe_2.AbsolutePosition.X, 0, 258), 0, 6), "InOut", "Linear", 0.05, true)
 				TextLabel.Visible = true
-                Sliderframe_2:TweenSize(UDim2.new(0, math.clamp(mouse.X - Sliderframe_2.AbsolutePosition.X, 0, 258), 0, 6), "InOut", "Linear", 0.05, true)
-                moveconnection:Disconnect()
-                releaseconnection:Disconnect()
-				TextLabel.Visible = false
-			        end
-               end)
-	       end)
-        end  
-        return Items
+				moveconnection = mouse.Move:Connect(function()
+					TextLabel.Text = Value
+					TextLabel.Visible = true
+					Value = math.floor((((tonumber(max) - tonumber(min)) / 258) * Sliderframe_2.AbsoluteSize.X) + tonumber(min))
+					pcall(function()
+						callback(Value)
+					end)
+					Sliderframe_2:TweenSize(UDim2.new(0, math.clamp(mouse.X - Sliderframe_2.AbsolutePosition.X, 0, 258), 0, 6), "InOut", "Linear", 0.05, true)
+				end)
+				releaseconnection = UIS.InputEnded:Connect(function(Mousee)
+					if Mousee.UserInputType == Enum.UserInputType.MouseButton1 then
+						Value = math.floor((((tonumber(max) - tonumber(min)) / 258) * Sliderframe_2.AbsoluteSize.X) + tonumber(min))
+						pcall(function()
+							callback(Value)
+						end)
+						TextLabel.Text = Value
+						TextLabel.Visible = true
+						Sliderframe_2:TweenSize(UDim2.new(0, math.clamp(mouse.X - Sliderframe_2.AbsolutePosition.X, 0, 258), 0, 6), "InOut", "Linear", 0.05, true)
+						moveconnection:Disconnect()
+						releaseconnection:Disconnect()
+						TextLabel.Visible = false
+					end
+				end)
+			end)
+		end  
+		return Items
 	end 
 	return Tabs
 end
