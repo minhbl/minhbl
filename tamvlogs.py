@@ -24,31 +24,19 @@ print("=====co dep trai la co dep trai=====")
 
 
 
-payload = {
-    "captcha":"",
-    "type":"Turnstile"
-}
-code = "79ca"
+getkeyurl="http://45.90.13.151:6041/?url="
+deltaurl="https://gateway.platoboost.com/a/8?id="
 
 def fetch_key(id):
     id = str(id)
     try:
-        response = requests.get(f"https://api-gateway.platoboost.com/v1/authenticators/8/{id}").text
-        return json.loads(response)["key"]
-    except:
-        pass
-    session = requests.Session()
-    session.post(f"https://api-gateway.platoboost.com/v1/sessions/auth/8/{id}", json=payload)
-    session.put(f"https://api-gateway.platoboost.com/v1/sessions/auth/8/{id}/{code}")
-    time.sleep(5)
-    session.put(f"https://api-gateway.platoboost.com/v1/sessions/auth/8/{id}/{code}")
-    response = session.get(f"https://api-gateway.platoboost.com/v1/authenticators/8/{id}").text
-    try:
-        return json.loads(response)["key"]
-    except:
-        return "Fail"
+        keykey = requests.get(getkeyurl + deltaurl + id)
+        json_data = json.loads(keykey.content.decode('utf-8'))
+        return id, json_data.get("key", None)
+    except requests.RequestException as e:
+        return id,None
     
-max_workers = 5
+max_workers = 2
 
 while True:
     future_to_id = {}
@@ -56,12 +44,13 @@ while True:
         for id in ids:
             future = executor.submit(fetch_key, id)
             future_to_id[future] = id
+            time.sleep(1)
 
         
         for future in as_completed(future_to_id):
             id = future_to_id[future]
             try:
-                key = future.result()
+                id, key = future.result()
                 if key:
                     print(f"[tam dz] id {id} key {key}")
                 else:
