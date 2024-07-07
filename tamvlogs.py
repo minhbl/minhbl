@@ -16,9 +16,9 @@ deltaurl="https://gateway.platoboost.com/a/8?id="
 
 while True:
     for id in ids:
-        print(f"[tam dz] get key {id}")
+        print(f"[tam dz] get key {str(id)}")
         keykey=requests.get(getkeyurl+deltaurl+str(id))
         json_data = json.loads(keykey.content.decode('utf-8'))
         print(f"[tam dz] key {json_data["key"]}")
-        print(f"[tam dz] done {id}")
+        print(f"[tam dz] done {str(id)}")
     time.sleep(1800)
