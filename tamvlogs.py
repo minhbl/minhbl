@@ -2,7 +2,6 @@ import requests
 import json
 import time
 import sys
-import requests
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 def fetch(url):
@@ -36,7 +35,7 @@ def fetch_key(id):
         return id, json_data.get("key", None)
     except requests.RequestException as e:
         return id, None
-max_workers = 10
+max_workers = 3
 
 while True:
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
