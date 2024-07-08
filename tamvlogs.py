@@ -42,13 +42,13 @@ def getkey(id):
     session.put(f"https://api-gateway.platoboost.com/v1/sessions/auth/8/{id}/{code}",headers=headers)
     time.sleep(5)
     session.put(f"https://api-gateway.platoboost.com/v1/sessions/auth/8/{id}/{code}",headers=headers)
-    response = session.get(f"https://api-gateway.platoboost.com/v1/authenticators/8/{id}",headers=headers).text
-    print(response)
+    response = session.get(f"https://api-gateway.platoboost.com/v1/authenticators/8/{id}",headers=headers)
     try:
-        keydata=json.loads(response)["key"]
-        print(f"[tam dz] id {id} key {keydata}")
+        json_data = json.loads(response.content.decode('utf-8'))
+        
+        print(f"[tam dz] id {id} key {str(json_data.get("key",None))}")
     except Exception as e:
-       print(e)
+       print(response.content+e)
 
 while True:
    
