@@ -2,6 +2,7 @@ import requests
 import json
 import time
 import sys
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 print('') 
 ids=[]
@@ -34,15 +35,22 @@ def getkey(id):
         keydata=json.loads(response)["key"]
         print(f"[tam dz] id {id} key {keydata}")
     except:
-        pass
+        print(f"[tam dz] id {id} key djtku request")
 
  
-
+max_workers=5
 while True:
-    allthread=[]
-    for id in ids:
-        getkey(id)
-        time.sleep(1)
+    future_to_id = {}
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        for id in ids:
+            future = executor.submit(getkey, id)
+            future_to_id[future] = id
+            time.sleep(1)
+
+        
+    for future in as_completed(future_to_id):
+        pass            
+
     for i in range(1800, -1, -1):
         sys.stdout.write(f"\r===== Chờ tam dz {i} giây để tiếp tục tool =====")
         sys.stdout.flush()
