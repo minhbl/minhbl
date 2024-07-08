@@ -46,13 +46,8 @@ def getkey(id):
     try:
         keydata=json.loads(response)["key"]
         print(f"[tam dz] id {id} key {keydata}")
-    except:
-        for i in range(60, -1, -1):
-            sys.stdout.write(f"\r===== Chờ tam dz {i} giây để tiếp tục tool =====")
-            sys.stdout.flush()
-            time.sleep(1)
-        print("\n")
-        getkey(id)
+    except Exception as e:
+       print(e)
 
 while True:
    
