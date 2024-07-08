@@ -43,6 +43,7 @@ def getkey(id):
     time.sleep(5)
     session.put(f"https://api-gateway.platoboost.com/v1/sessions/auth/8/{id}/{code}",headers=headers)
     response = session.get(f"https://api-gateway.platoboost.com/v1/authenticators/8/{id}",headers=headers).text
+    print(response)
     try:
         keydata=json.loads(response)["key"]
         print(f"[tam dz] id {id} key {keydata}")
